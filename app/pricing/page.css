@@ -41,12 +41,12 @@
 }
 
 .price-cards__inner {
-    max-width: 900px;
+    max-width: 1200px;
 }
 
 .price-cards__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: var(--space-xl);
     align-items: start;
 }
@@ -60,7 +60,18 @@
     box-shadow: var(--shadow-md);
 }
 
-/* ── Card 1: Climber Pro ── */
+/* ── Card 1: Climber Starter ── */
+.price-card--starter {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--text-muted);
+}
+
+.price-card--starter .price-card__name {
+    margin-top: 0;
+}
+
+/* ── Card 2: Climber Pro ── */
 .price-card--pro {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -182,11 +193,13 @@
     margin-top: 2px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 960px) {
     .price-cards__grid {
         grid-template-columns: 1fr;
     }
+}
 
+@media (max-width: 640px) {
     .price-card {
         padding: var(--space-xl);
     }

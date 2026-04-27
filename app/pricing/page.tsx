@@ -8,23 +8,28 @@ import './page.css';
  * Feature lists
  * ────────────────────────────────────────────────────────────────────────── */
 
+const STARTER_FEATURES = [
+    'AI-powered signal extraction',
+    'Issue monitoring',
+    'Weekly insights email',
+    'Custom taxonomies',
+    'Up to 3 seats',
+];
+
 const PRO_FEATURES = [
-    'Unlimited Gong transcript monitoring',
-    'AI-powered risk signal extraction',
-    'Real-time Slack alerts',
-    'Account-level sentiment scoring',
-    'Weekly risk digest email',
-    'Up to 50 monitored accounts',
+    'Everything in Starter',
+    'Gong transcript monitoring',
+    'Custom alerting & auto-monitoring',
+    'CRM integrations (Salesforce, HubSpot)',
+    'Slack & messaging app integrations',
+    'Unlimited seats',
 ];
 
 const ENTERPRISE_FEATURES = [
     'Everything in Climber Pro',
-    'Unlimited monitored accounts',
-    'Multi-workspace Gong support',
-    'Custom Slack channel routing',
-    'CRM integration (Salesforce, HubSpot)',
+    'Custom integrations',
+    'Multiple product layers',
     'Dedicated onboarding & support',
-    'SOC 2 Type II (coming Q3 2026)',
 ];
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -57,6 +62,12 @@ const FAQS = [
 /* ─────────────────────────────────────────────────────────────────────────────
  * Sub-components
  * ────────────────────────────────────────────────────────────────────────── */
+
+const CheckStarter: React.FC = () => (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3.5 8.5l3 3 6-6.5" stroke="var(--text-secondary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
 
 const CheckPro: React.FC = () => (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -118,7 +129,31 @@ export default function PricingPage() {
                 <div className="price-cards__inner container">
                     <div className="price-cards__grid">
 
-                        {/* Card 1: Climber Pro */}
+                        {/* Card 1: Climber Starter */}
+                        <div className="price-card price-card--starter">
+                            <h3 className="price-card__name">Climber Starter</h3>
+                            <div className="price-card__price-block">
+                                <div className="price-card__price">
+                                    $400<span className="price-card__per">/mo</span>
+                                </div>
+                                <div className="price-card__billing">billed annually</div>
+                                <div className="price-card__billing-alt">or $500/mo billed monthly</div>
+                            </div>
+                            <button
+                                type="button"
+                                onClick={handleDemo}
+                                className="btn btn-secondary price-card__cta"
+                            >
+                                Book a demo
+                            </button>
+                            <ul className="price-card__features">
+                                {STARTER_FEATURES.map((f) => (
+                                    <li key={f}><CheckStarter /><span>{f}</span></li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Card 2: Climber Pro */}
                         <div className="price-card price-card--pro">
                             <h3 className="price-card__name">Climber Pro</h3>
                             <div className="price-card__price-block">
@@ -142,7 +177,7 @@ export default function PricingPage() {
                             </ul>
                         </div>
 
-                        {/* Card 2: Climber Enterprise */}
+                        {/* Card 3: Climber Enterprise */}
                         <div className="price-card price-card--enterprise">
                             <div className="price-card__enterprise-top">
                                 <span className="price-card__badge">Custom</span>
