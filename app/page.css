@@ -271,8 +271,7 @@
     }
 
     .hero__visual {
-        order: -1;
-        margin-bottom: var(--space-xl);
+        margin-top: var(--space-xl);
         justify-content: center;
     }
 
@@ -301,37 +300,100 @@
     margin: 0 auto var(--space-2xl);
 }
 
-.problem-bar__pillars {
+/* ── Bento (Replit-inspired) ── */
+
+.problem-bar__bento {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
     text-align: left;
+    max-width: 1120px;
+    margin: 0 auto;
 }
 
-.problem-bar__pillar {
+.bento-tile {
+    position: relative;
+    padding: clamp(32px, 3.5vw, 48px);
+    min-height: 280px;
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
+    justify-content: flex-end;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.problem-bar__pillar-title {
-    font-size: var(--text-h3-size);
-    line-height: var(--text-h3-leading);
-    font-weight: var(--font-weight-bold, 700);
-    margin: 0;
+.bento-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
 }
 
-.problem-bar__pillar-body {
-    font-size: var(--text-body-size);
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.78);
+.bento-tile__title {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--space-md);
+}
+
+.bento-tile__body {
+    font-family: var(--font-ui);
+    font-size: 15px;
+    line-height: 1.55;
     margin: 0;
+    max-width: 42ch;
+    opacity: 0.85;
+}
+
+/* Rounded square — cream */
+.bento-tile--cream-rect {
+    background: var(--surface-2, #F0EDE8);
+    color: var(--text-primary, #1A1714);
+    border-radius: 28px;
+}
+
+/* Pill — deep navy */
+.bento-tile--deep-pill {
+    background: var(--parliament, #0F1F3D);
+    color: rgba(255, 255, 255, 0.92);
+    border-radius: 999px;
+    padding-inline: clamp(56px, 5vw, 80px);
+}
+
+/* Pill — orange */
+.bento-tile--accent-pill {
+    background: var(--accent-2, #E8820C);
+    color: rgba(20, 14, 6, 0.95);
+    border-radius: 999px;
+    padding-inline: clamp(56px, 5vw, 80px);
+}
+
+/* Rounded square — frosted glass */
+.bento-tile--glass-rect {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 28px;
 }
 
 @media (max-width: 720px) {
-    .problem-bar__pillars {
+    .problem-bar__bento {
         grid-template-columns: 1fr;
-        gap: var(--space-lg);
+        gap: var(--space-md);
+    }
+
+    .bento-tile {
+        min-height: 200px;
+        padding: 32px;
+    }
+
+    /* Soften pills on narrow screens to keep content legible */
+    .bento-tile--deep-pill,
+    .bento-tile--accent-pill {
+        border-radius: 36px;
+        padding-inline: 32px;
     }
 }
 
@@ -547,29 +609,16 @@
 
 .features__grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-xl);
 }
 
-.features__grid > * {
-    grid-column: span 4;
-}
-
-.bento-card--large {
-    grid-column: span 8;
-}
-
-.bento-card--full {
-    grid-column: span 12;
-}
-
-@media (max-width: 1024px) {
-    .bento-card--large { grid-column: span 12; }
-    .features__grid > * { grid-column: span 6; }
-}
-
 @media (max-width: 768px) {
-    .features__grid > * { grid-column: span 12; }
+    .features__grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin-inline: auto;
+    }
 }
 
 .features__card {
@@ -606,14 +655,6 @@
 
 .features__card-badge {
     align-self: flex-start;
-}
-
-@media (max-width: 768px) {
-    .features__grid {
-        grid-template-columns: 1fr;
-        max-width: 480px;
-        margin-inline: auto;
-    }
 }
 
 /* ── SECTION 6: CREDIBILITY ───────────────────────────────────────────────── */
@@ -986,49 +1027,23 @@
     }
 }
 
-/* ── SECTION 8: FINAL CTA BAND ───────────────────────────────────────────── */
-
-.final-cta {
-    background-color: var(--surface-2);
-    padding-block: var(--space-section);
-}
-
-.final-cta__inner {
-    text-align: center;
-    max-width: 620px;
-}
-
-.final-cta__title {
-    font-family: var(--font-display);
-    font-size: 40px;
-    line-height: 48px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--text-primary);
-    margin-bottom: var(--space-md);
-}
-
-.final-cta__body {
-    font-family: var(--font-ui);
-    font-size: 16px;
-    line-height: 26px;
-    color: var(--text-secondary);
-    margin-bottom: var(--space-xl);
-}
-
-/* Larger accent button for the final CTA */
+/* Larger accent button for the merged CTA */
 .btn-accent--lg {
     height: 56px;
     font-size: 17px;
     padding-inline: 32px;
 }
 
-.final-cta__btn {
+/* ── Agentic CTA variant: removes the top slant + tightens spacing ──────── */
+
+.agentic--cta {
+    clip-path: none;
+}
+
+.agentic--cta .agentic__title {
     margin-bottom: var(--space-md);
 }
 
-.final-cta__note {
-    font-family: var(--font-ui);
-    font-size: 14px;
-    color: var(--text-muted);
+.agentic--cta .agentic__body {
+    margin-bottom: var(--space-xl);
 }

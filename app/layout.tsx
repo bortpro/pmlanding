@@ -20,13 +20,13 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-    title: 'Climber by ProductMountain — Automated revenue risk escalations for CS teams',
+    title: 'ProductMountain — Build what your customers need',
     description:
-        'Climber reads your Gong transcripts, contextualizes risk signals with revenue data, and delivers prioritized escalations to Slack — so your CS team acts before renewals are at stake.',
+        'ProductMountain analyzes call transcripts to transform raw customer feedback into roadmap-ready insights so product teams ship the highest-impact features and maximize retention.',
     openGraph: {
-        title: 'Climber by ProductMountain — Automated revenue risk escalations for CS teams',
+        title: 'ProductMountain — Build what your customers need',
         description:
-            'Climber reads your Gong transcripts, contextualizes risk signals with revenue data, and delivers prioritized escalations to Slack — so your CS team acts before renewals are at stake.',
+            'ProductMountain analyzes call transcripts to transform raw customer feedback into roadmap-ready insights so product teams ship the highest-impact features and maximize retention.',
         type: 'website',
         url: 'https://productmountain.com',
         images: [{ url: '/og-image.png', width: 1200, height: 630 }],

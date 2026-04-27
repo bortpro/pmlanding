@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { openDemoModal } from '../components/layout/demoModal';
 import './page.css';
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -28,16 +29,6 @@ const MountainIcon: React.FC<{ fill?: string; size?: number; className?: string 
 
 const MockSlackCard = () => (
     <div className="hero__slack-card" aria-hidden="true">
-        {/* Header: avatar + name + badge + time */}
-        <div className="slack-card__header">
-            <div className="slack-card__avatar">C</div>
-            <div className="slack-card__meta">
-                <span className="slack-card__name">Climber</span>
-                <span className="slack-card__app-badge">APP</span>
-                <span className="slack-card__time">2:34 PM</span>
-            </div>
-        </div>
-
         {/* Risk badge */}
         <div className="slack-card__risk-row">
             <span className="badge badge-risk-high">Revenue Risk</span>
@@ -91,7 +82,7 @@ const MockAlertCard = () => (
                 <span style={{ fontSize: '13px', fontWeight: 600 }}>SSO Integration</span>
                 <span style={{ fontSize: '12px', color: 'var(--color-success)', fontWeight: 700 }}>$120k ARR</span>
             </div>
-            <p style={{ fontSize: '13px', color: 'var(--color-text-secondary)', margin: 0, lineHeight: 1.5 }}>Gong transcript: "We cannot move forward with renewal without SAML/SSO compliance."</p>
+            <p style={{ fontSize: '13px', color: 'var(--color-text-secondary)', margin: 0, lineHeight: 1.5 }}>Call transcript: "We cannot move forward with renewal without SAML/SSO compliance."</p>
         </div>
     </div>
 );
@@ -229,6 +220,15 @@ const INTEGRATION_LIST = [
         )
     },
     {
+        name: 'Granola',
+        icon: (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 9c0-3 2-6 7-6s7 3 7 6c0 4-3 7-7 7s-7-3-7-7z" />
+                <path d="M9 21l3-5 3 5" />
+            </svg>
+        )
+    },
+    {
         name: 'HubSpot',
         icon: (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -274,6 +274,26 @@ const IntegrationGrid = () => (
     </>
 );
 
+const MockTaxonomy = () => (
+    <div className="mock-demo mock-taxonomy" aria-hidden="true" style={{ background: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: '0px', padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--color-border)', paddingBottom: '10px' }}>
+            <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--color-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Issue Taxonomy</span>
+            <span style={{ fontSize: '10px', color: 'var(--color-text-secondary)', background: 'var(--color-surface)', padding: '2px 6px', fontWeight: 600 }}>YOUR PRODUCT</span>
+        </div>
+        {[
+            { tag: 'Analytics · Reporting', route: '→ Insights team', tone: '#2563EB' },
+            { tag: 'Integrations · API',    route: '→ Platform team', tone: '#0EA572' },
+            { tag: 'Auth · SSO',            route: '→ Security pod',  tone: '#7C3AED' },
+        ].map((row) => (
+            <div key={row.tag} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '12px' }}>
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: row.tone, flexShrink: 0 }} />
+                <span style={{ color: 'var(--color-text-primary)', fontWeight: 600 }}>{row.tag}</span>
+                <span style={{ color: 'var(--color-text-secondary)', marginLeft: 'auto' }}>{row.route}</span>
+            </div>
+        ))}
+    </div>
+);
+
 /* ─────────────────────────────────────────────────────────────────────────────
  * Feature card data
  * ────────────────────────────────────────────────────────────────────────── */
@@ -282,20 +302,22 @@ const FEATURES = [
     {
         visual: <MockAlertCard />,
         title: 'Capture',
-        body: 'Slack /feedback command. Gong transcripts monitored automatically. CRM data synced. Two fields, thirty seconds — no new app for anyone to learn.',
-        bentoClass: 'bento-card--large'
+        body: 'Slack /feedback command. Call transcripts from Gong, Granola, and other tools monitored automatically. CRM data synced. Two fields, thirty seconds — no new app for anyone to learn.',
     },
     {
         visual: <MockInsightDashboard />,
         title: 'Intelligence',
         body: 'Understands the job to be done behind every request, not just the surface feature ask. ARR and renewal context attached to every signal. Manual ranking adjustments available when you know something the algorithm doesn\'t.',
-        bentoClass: ''
+    },
+    {
+        visual: <MockTaxonomy />,
+        title: 'Customization',
+        body: 'Built around your unique product landscape. Custom issue taxonomies, product areas, and routing rules ensure feedback gets organized and sent to the right team automatically.',
     },
     {
         visual: <MockRoadmapSync />,
         title: 'Visibility',
         body: 'CS knows where every request stands. Product has a decision log with reasons. Leadership sees the full revenue picture. Everyone operates on the same signal.',
-        bentoClass: ''
     },
 ];
 
@@ -331,7 +353,7 @@ const HIW_STEPS = [
         icon: <IconConnect />,
         label: 'Ingest',
         title: 'Every call, automatically',
-        description: "Connect your Gong workspace in minutes. Climber reads every transcript the moment it's available — no manual uploads, no configuration per call.",
+        description: "Connect your call recording tools — Gong, Granola, or upload transcripts manually. Climber reads every transcript the moment it's available, no configuration per call.",
         stepNum: '01',
         stepClass: 'how-it-works__step--1',
         iconClass: 'how-it-works__icon--1',
@@ -381,11 +403,7 @@ const IconRocket = () => (
  * HOME PAGE COMPONENT
  * ═══════════════════════════════════════════════════════════════════════════ */
 
-interface HomePageProps {
-    onEarlyAccess: () => void;
-}
-
-export default function HomePage({ onEarlyAccess }: HomePageProps) {
+export default function HomePage() {
     return (
         <main>
             {/* ── SECTION 1: HERO ────────────────────────────────────────────── */}
@@ -396,23 +414,22 @@ export default function HomePage({ onEarlyAccess }: HomePageProps) {
                             Build what your customers need
                         </h1>
                         <p className="hero__subhead text-body-lg">
-                            Our AI Agent, Climber, monitors call transcripts — translating user feedback into roadmap-ready product insights so you can minimize churn and land new business.
+                            Automatically analyze call transcripts to transform raw feedback into roadmap-ready insights delivered directly to your product teams. We help you prioritize the highest-impact features and maximize growth and retention.
                         </p>
                         <div className="hero__ctas">
-                            <a
-                                href="https://calendly.com/productmountain/30min"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <button
+                                type="button"
+                                onClick={openDemoModal}
                                 className="btn btn-accent"
                             >
                                 Book a demo
-                            </a>
+                            </button>
                             <a href="#how-it-works" className="btn btn-secondary">
                                 See how it works →
                             </a>
                         </div>
                         <p className="hero__proof text-label">
-                            Built for CS leaders at B2B SaaS companies using Gong
+                            Built for B2B SaaS teams that ship what their customers ask for
                         </p>
                     </div>
                     <div className="hero__visual">
@@ -427,23 +444,29 @@ export default function HomePage({ onEarlyAccess }: HomePageProps) {
                     <h2 className="problem-bar__title">
                         Building has never been easier. Make sure you build what your customers actually need.
                     </h2>
-                    <div className="problem-bar__pillars">
-                        <div className="problem-bar__pillar">
-                            <h3 className="problem-bar__pillar-title">Maximize ARR and NRR</h3>
-                            <p className="problem-bar__pillar-body">
+                    <div className="problem-bar__bento">
+                        <div className="bento-tile bento-tile--cream-rect">
+                            <h3 className="bento-tile__title">Maximize ARR and NRR</h3>
+                            <p className="bento-tile__body">
                                 We&apos;re the go-between from users to product, ensuring customer requirements get onto the roadmap.
                             </p>
                         </div>
-                        <div className="problem-bar__pillar">
-                            <h3 className="problem-bar__pillar-title">Right place, right time</h3>
-                            <p className="problem-bar__pillar-body">
+                        <div className="bento-tile bento-tile--deep-pill">
+                            <h3 className="bento-tile__title">Right place, right time</h3>
+                            <p className="bento-tile__body">
                                 Don&apos;t let feature requests get lost in a spreadsheet — automatically escalate signals to the right teams as soon as they&apos;re available.
                             </p>
                         </div>
-                        <div className="problem-bar__pillar">
-                            <h3 className="problem-bar__pillar-title">Build what matters</h3>
-                            <p className="problem-bar__pillar-body">
+                        <div className="bento-tile bento-tile--accent-pill">
+                            <h3 className="bento-tile__title">Build what matters</h3>
+                            <p className="bento-tile__body">
                                 Prioritize the right things, not just the loudest ones, with comprehensive impact scoring and cross-request analysis.
+                            </p>
+                        </div>
+                        <div className="bento-tile bento-tile--glass-rect">
+                            <h3 className="bento-tile__title">No added effort</h3>
+                            <p className="bento-tile__body">
+                                Connect the call recording tools, CRMs, and chat tools your team already uses. No new app for anyone to learn.
                             </p>
                         </div>
                     </div>
@@ -501,7 +524,7 @@ export default function HomePage({ onEarlyAccess }: HomePageProps) {
                 <div className="features__inner container">
                     <div className="features__grid">
                         {FEATURES.map((feat) => (
-                            <div className={`features__card card ${feat.bentoClass}`} key={feat.title}>
+                            <div className="features__card card" key={feat.title}>
                                 {feat.visual}
                                 <h3 className="features__card-title text-h3">{feat.title}</h3>
                                 <p className="features__card-body text-body">{feat.body}</p>
@@ -560,40 +583,36 @@ export default function HomePage({ onEarlyAccess }: HomePageProps) {
                             <p className="credibility__partner-body">
                                 We&apos;re onboarding design partners now. Get early access, shape the product, and lock in founding pricing.
                             </p>
-                            <a
-                                href="https://calendly.com/productmountain/30min"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <button
+                                type="button"
+                                onClick={openDemoModal}
                                 className="credibility__partner-cta"
                             >
                                 Book a call →
-                            </a>
+                            </button>
                         </div>
 
                     </div>
                 </div>
             </section>
 
-            {/* ── SECTION 7: CLIMBER SHOWCASE ─────────────────────────────────── */}
-            <section className="agentic" id="alex">
-                <div className="agentic__inner container">
+            {/* ── SECTION 7: FINAL CTA (on glass-blue background) ─────────────── */}
+            <section className="agentic agentic--cta" id="early-access">
+                <div className="agentic__inner agentic__inner--cta container">
                     <div className="agentic__content">
-                        <span className="agentic__badge">AI Agent</span>
-                        <span className="agentic__accent-mark" aria-hidden="true" />
                         <h2 className="agentic__title">
-                            Don&apos;t wait for the escalation.
+                            Stop losing customers because of missing features.
                         </h2>
                         <p className="agentic__body">
-                            Climber is an AI agent that proactively monitors your Gong transcripts, identifies revenue risk before your team does, and delivers actionable alerts directly to Slack. No dashboards to check. No reports to read. Just the signal your CS team needs, when they need it.
+                            Take the next step in optimizing your product feedback loop.
                         </p>
-                        <a
-                            href="https://calendly.com/productmountain/30min"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="agentic__cta btn btn-accent"
+                        <button
+                            type="button"
+                            onClick={openDemoModal}
+                            className="agentic__cta btn btn-accent btn-accent--lg"
                         >
-                            Book a demo
-                        </a>
+                            Book a 30-minute demo
+                        </button>
                     </div>
                     <div className="agentic__visual">
                         <div className="agentic__beacon" aria-hidden="true">
@@ -603,29 +622,6 @@ export default function HomePage({ onEarlyAccess }: HomePageProps) {
                             <div className="agentic__beacon-dot" />
                         </div>
                     </div>
-                </div>
-            </section>
-
-            {/* ── SECTION 8: FINAL CTA BAND ──────────────────────────────────── */}
-            <section className="final-cta" id="early-access">
-                <div className="final-cta__inner container">
-                    <h2 className="final-cta__title">
-                        Stop finding out about churn risk after it&apos;s too late.
-                    </h2>
-                    <p className="final-cta__body">
-                        Climber watches every Gong call so your CS team doesn&apos;t have to. See it in action.
-                    </p>
-                    <a
-                        href="https://calendly.com/productmountain/30min"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="final-cta__btn btn btn-accent btn-accent--lg"
-                    >
-                        Book a 30-minute demo
-                    </a>
-                    <p className="final-cta__note">
-                        No commitment. No credit card. Just a conversation.
-                    </p>
                 </div>
             </section>
         </main>

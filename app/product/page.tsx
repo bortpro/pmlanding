@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { openDemoModal } from '../../components/layout/demoModal';
 import './page.css';
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -290,11 +291,7 @@ const INTEGRATIONS = [
  * PRODUCT PAGE COMPONENT
  * ═══════════════════════════════════════════════════════════════════════════ */
 
-interface ProductPageProps {
-    onEarlyAccess?: () => void;
-}
-
-export default function ProductPage({ onEarlyAccess }: ProductPageProps) {
+export default function ProductPage() {
     return (
         <main className="product-page">
             {/* ── SECTION 1: HERO ──────────────────────────────────────────── */}
@@ -306,7 +303,7 @@ export default function ProductPage({ onEarlyAccess }: ProductPageProps) {
                     <p className="prod-hero__sub text-body-lg">
                         Five capabilities that close the loop between customer conversations, revenue data, and roadmap execution.
                     </p>
-                    <button className="btn btn-primary" onClick={onEarlyAccess}>
+                    <button className="btn btn-primary" onClick={openDemoModal}>
                         Get Early Access
                     </button>
                 </div>
@@ -414,7 +411,7 @@ export default function ProductPage({ onEarlyAccess }: ProductPageProps) {
             <section className="plat-cta" id="platform-cta">
                 <div className="plat-cta__inner container">
                     <h2 className="plat-cta__title text-h1">Ready to close the loop?</h2>
-                    <button className="btn btn-primary plat-cta__btn" onClick={onEarlyAccess}>
+                    <button className="btn btn-primary plat-cta__btn" onClick={openDemoModal}>
                         Get Early Access
                     </button>
                 </div>

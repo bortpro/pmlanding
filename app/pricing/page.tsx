@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { openDemoModal } from '../../components/layout/demoModal';
 import './page.css';
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -93,6 +94,7 @@ const FaqItem: React.FC<{
  * ═══════════════════════════════════════════════════════════════════════════ */
 
 export default function PricingPage() {
+    const handleDemo = openDemoModal;
     const [openFaq, setOpenFaq] = useState<number | null>(null);
     const toggleFaq = (i: number) => setOpenFaq(openFaq === i ? null : i);
 
@@ -126,14 +128,13 @@ export default function PricingPage() {
                                 <div className="price-card__billing">billed annually</div>
                                 <div className="price-card__billing-alt">or $1,500/mo billed monthly</div>
                             </div>
-                            <a
-                                href="https://calendly.com/productmountain/30min"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <button
+                                type="button"
+                                onClick={handleDemo}
                                 className="btn btn-accent price-card__cta"
                             >
                                 Book a demo
-                            </a>
+                            </button>
                             <ul className="price-card__features">
                                 {PRO_FEATURES.map((f) => (
                                     <li key={f}><CheckPro /><span>{f}</span></li>
@@ -192,16 +193,15 @@ export default function PricingPage() {
                         Ready to stop missing churn signals?
                     </h2>
                     <p className="price-cta__sub">
-                        It takes 10 minutes to connect Gong. The first alert pays for itself.
+                        It takes 10 minutes to connect your call recording stack. The first insight pays for itself.
                     </p>
-                    <a
-                        href="https://calendly.com/productmountain/30min"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        type="button"
+                        onClick={handleDemo}
                         className="btn btn-accent"
                     >
                         Book a demo
-                    </a>
+                    </button>
                 </div>
             </section>
 

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import { openDemoModal } from './demoModal';
 import './Navbar.css';
 
 const MountainIcon: React.FC<{ size?: number }> = ({ size = 28 }) => (
@@ -41,7 +42,6 @@ export const Navbar: React.FC = () => {
 
     const NAV_LINKS = [
         { label: 'How it works', href: anchor('#how-it-works'), isAnchor: true },
-        { label: 'Climber',      href: anchor('#alex'),          isAnchor: true },
         { label: 'Pricing',      href: '/pricing',               isAnchor: false },
         { label: 'Resources',    href: '/resources',             isAnchor: false },
     ];
@@ -74,14 +74,13 @@ export const Navbar: React.FC = () => {
                     </ul>
 
                     {/* Desktop CTA */}
-                    <a
-                        href="https://calendly.com/productmountain/30min"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        type="button"
+                        onClick={openDemoModal}
                         className="navbar__cta btn btn-accent"
                     >
                         Book a demo
-                    </a>
+                    </button>
 
                     {/* Mobile hamburger */}
                     <button
@@ -112,15 +111,13 @@ export const Navbar: React.FC = () => {
                         </li>
                     ))}
                 </ul>
-                <a
-                    href="https://calendly.com/productmountain/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <button
+                    type="button"
+                    onClick={() => { closeMobile(); openDemoModal(); }}
                     className="navbar-mobile__cta btn btn-accent"
-                    onClick={closeMobile}
                 >
                     Book a demo
-                </a>
+                </button>
             </div>
         </>
     );

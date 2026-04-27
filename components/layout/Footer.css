@@ -7,14 +7,6 @@
     overflow: hidden;
 }
 
-/* ── Mountain ridgeline transition from surface-2 above ── */
-.footer__ridge {
-    display: block;
-    width: 100%;
-    line-height: 0;
-    /* filled with --surface-2 (#F0EDE8) to bridge the CTA band */
-}
-
 /* ── Topographic texture overlay ── */
 .footer__topo {
     position: absolute;
@@ -107,6 +99,15 @@
 
 .footer__link:hover {
     color: #FFFFFF;
+}
+
+.footer__link--button {
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
 }
 
 /* ─── Bottom Bar ────────────────────────────────────────────────────────────── */

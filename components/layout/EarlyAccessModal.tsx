@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './EarlyAccessModal.css';
 
 interface EarlyAccessModalProps {
@@ -8,38 +8,62 @@ interface EarlyAccessModalProps {
     onClose: () => void;
 }
 
-const MountainIcon: React.FC<{ fill?: string; size?: number }> = ({
-    fill = 'var(--color-primary)',
-    size = 48,
-}) => (
-    <svg
-        viewBox="0 0 48 32"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        width={size}
-        height={(size * 32) / 48}
-        aria-hidden="true"
-    >
-        <polygon points="8,28 20,8 32,28" fill={fill} />
-        <polygon points="22,28 34,4 46,28" fill={fill} />
-    </svg>
-);
+const CALENDLY_URL = 'https://calendly.com/molly-productmountain/30min?primary_color=db8733';
+const CALENDLY_SCRIPT_SRC = 'https://assets.calendly.com/assets/external/widget.js';
+
+declare global {
+    interface Window {
+        Calendly?: {
+            initInlineWidget: (opts: { url: string; parentElement: HTMLElement }) => void;
+        };
+    }
+}
 
 export const EarlyAccessModal: React.FC<EarlyAccessModalProps> = ({ isOpen, onClose }) => {
-    // Lock body scroll when open
+    const widgetRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
         document.body.style.overflow = isOpen ? 'hidden' : '';
         return () => { document.body.style.overflow = ''; };
     }, [isOpen]);
 
-    // Close on Escape
     useEffect(() => {
-        const onKey = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') onClose();
-        };
-        if (isOpen) window.addEventListener('keydown', onKey);
+        if (!isOpen) return;
+        const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+        window.addEventListener('keydown', onKey);
         return () => window.removeEventListener('keydown', onKey);
     }, [isOpen, onClose]);
+
+    useEffect(() => {
+        if (!isOpen || !widgetRef.current) return;
+
+        const init = () => {
+            if (widgetRef.current && window.Calendly) {
+                widgetRef.current.innerHTML = '';
+                window.Calendly.initInlineWidget({
+                    url: CALENDLY_URL,
+                    parentElement: widgetRef.current,
+                });
+            }
+        };
+
+        if (window.Calendly) {
+            init();
+            return;
+        }
+
+        const existing = document.querySelector<HTMLScriptElement>(`script[src="${CALENDLY_SCRIPT_SRC}"]`);
+        if (existing) {
+            existing.addEventListener('load', init, { once: true });
+            return;
+        }
+
+        const script = document.createElement('script');
+        script.src = CALENDLY_SCRIPT_SRC;
+        script.async = true;
+        script.addEventListener('load', init, { once: true });
+        document.body.appendChild(script);
+    }, [isOpen]);
 
     return (
         <div
@@ -47,44 +71,15 @@ export const EarlyAccessModal: React.FC<EarlyAccessModalProps> = ({ isOpen, onCl
             onClick={onClose}
             role="dialog"
             aria-modal="true"
-            aria-label="See Climber in action"
+            aria-label="Book a demo"
         >
-            <div className="modal" onClick={(e) => e.stopPropagation()}>
-                {/* Close button */}
+            <div className="modal modal--calendly" onClick={(e) => e.stopPropagation()}>
                 <button className="modal__close" onClick={onClose} aria-label="Close modal">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                 </button>
-
-                <div className="modal__icon">
-                    <MountainIcon size={56} />
-                </div>
-
-                <h2 className="modal__headline">See Climber in action</h2>
-                <p className="modal__subhead">
-                    Book a 30-minute walkthrough. We&apos;ll show you how Climber catches revenue risk signals from real Gong transcripts.
-                </p>
-
-                <a
-                    href="https://calendly.com/productmountain/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="modal__calendly-btn btn btn-primary"
-                >
-                    Book a time on Calendly
-                </a>
-
-                <div className="modal__divider">
-                    <span>or</span>
-                </div>
-
-                <a
-                    href="mailto:hello@productmountain.com"
-                    className="modal__email-link"
-                >
-                    Email us directly at hello@productmountain.com
-                </a>
+                <div ref={widgetRef} className="modal__calendly-widget" />
             </div>
         </div>
     );

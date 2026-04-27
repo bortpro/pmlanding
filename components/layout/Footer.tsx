@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { openDemoModal } from './demoModal';
 import './Footer.css';
 
 const MountainIcon: React.FC<{ size?: number }> = ({ size = 32 }) => (
@@ -14,11 +17,10 @@ const MountainIcon: React.FC<{ size?: number }> = ({ size = 32 }) => (
     />
 );
 
-type FooterLink = { label: string; href: string; external?: boolean };
+type FooterLink = { label: string; href: string; external?: boolean; onClick?: () => void };
 
 const PRODUCT_LINKS: FooterLink[] = [
     { label: 'How it works', href: '/#how-it-works' },
-    { label: 'Climber',      href: '/#alex' },
     { label: 'Pricing',      href: '/pricing' },
 ];
 
@@ -26,10 +28,21 @@ const COMPANY_LINKS: FooterLink[] = [
     { label: 'Resources',                    href: '/resources' },
     { label: 'hello@productmountain.com',    href: 'mailto:hello@productmountain.com' },
     { label: 'LinkedIn',                     href: 'https://www.linkedin.com/company/productmountain', external: true },
-    { label: 'Book a demo',                  href: 'https://calendly.com/productmountain/30min',       external: true },
+    { label: 'Book a demo',                  href: '#',                                                onClick: openDemoModal },
 ];
 
-const FooterLink: React.FC<FooterLink> = ({ label, href, external }) => {
+const FooterLink: React.FC<FooterLink> = ({ label, href, external, onClick }) => {
+    if (onClick) {
+        return (
+            <button
+                type="button"
+                onClick={onClick}
+                className="footer__link footer__link--button"
+            >
+                {label}
+            </button>
+        );
+    }
     if (href.startsWith('mailto:') || external) {
         return (
             <a
@@ -49,18 +62,6 @@ export const Footer: React.FC = () => {
 
     return (
         <footer className="footer">
-            {/* Ridge SVG — transitions from surface-2 (#F0EDE8) above into the YKB footer */}
-            <svg
-                className="footer__ridge"
-                viewBox="0 0 1440 48"
-                preserveAspectRatio="none"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-            >
-                <path d="M0 48 L0 32 L120 20 L240 36 L360 16 L480 30 L600 12 L720 28 L840 8 L960 26 L1080 14 L1200 32 L1320 18 L1440 28 L1440 48 Z" fill="#F0EDE8" />
-            </svg>
-
             {/* Topographic texture overlay */}
             <div className="footer__topo" aria-hidden="true" />
 

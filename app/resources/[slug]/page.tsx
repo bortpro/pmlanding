@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { BlogPostCard, type BlogPost } from '../blog-index-section';
+import { openDemoModal } from '../../../components/layout/demoModal';
 import './page.css';
 
 // TODO: Wire [slug] to a CMS (Contentful, Sanity, or MDX files — TBD)
@@ -74,11 +75,7 @@ const RELATED_POSTS: BlogPost[] = [
  * BLOG POST PAGE COMPONENT
  * ═══════════════════════════════════════════════════════════════════════════ */
 
-interface BlogPostPageProps {
-    onEarlyAccess?: () => void;
-}
-
-export default function BlogPostPage({ onEarlyAccess }: BlogPostPageProps) {
+export default function BlogPostPage() {
     const post = SAMPLE_POST;
 
     const [shareUrl, setShareUrl] = useState('');
@@ -200,7 +197,7 @@ export default function BlogPostPage({ onEarlyAccess }: BlogPostPageProps) {
                             </p>
                             <button
                                 className="blog-post__callout-link"
-                                onClick={onEarlyAccess}
+                                onClick={openDemoModal}
                             >
                                 Get early access →
                             </button>

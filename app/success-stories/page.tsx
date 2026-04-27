@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { openDemoModal } from '../../components/layout/demoModal';
 import './page.css';
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -56,11 +57,7 @@ const MILESTONES = [
  * PARTNERS PAGE COMPONENT
  * ═══════════════════════════════════════════════════════════════════════════ */
 
-interface PartnersPageProps {
-    onEarlyAccess?: () => void;
-}
-
-export default function PartnersPage({ onEarlyAccess }: PartnersPageProps) {
+export default function PartnersPage() {
     return (
         <main className="stories-page">
             {/* ── SECTION 1: HERO ──────────────────────────────────────────── */}
@@ -74,14 +71,13 @@ export default function PartnersPage({ onEarlyAccess }: PartnersPageProps) {
                         sales leaders. If you&apos;re dealing with the feedback-to-roadmap problem,
                         we want to build this with you.
                     </p>
-                    <a
-                        href="https://calendly.com/productmountain"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        type="button"
+                        onClick={openDemoModal}
                         className="btn btn-primary"
                     >
                         Become a Design Partner
-                    </a>
+                    </button>
                 </div>
             </section>
 
@@ -135,15 +131,14 @@ export default function PartnersPage({ onEarlyAccess }: PartnersPageProps) {
                             </li>
                         ))}
                     </ul>
-                    <a
-                        href="https://calendly.com/productmountain"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        type="button"
+                        onClick={openDemoModal}
                         className="btn btn-primary btn--inverted"
                         style={{ marginTop: '2rem' }}
                     >
                         Apply to join
-                    </a>
+                    </button>
                 </div>
             </section>
 
@@ -169,16 +164,12 @@ export default function PartnersPage({ onEarlyAccess }: PartnersPageProps) {
                         Ready to help shape the future of product intelligence?
                     </h2>
                     <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <a
-                            href="https://calendly.com/productmountain"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <button
+                            type="button"
+                            onClick={openDemoModal}
                             className="btn btn-primary"
                         >
                             Schedule a call
-                        </a>
-                        <button className="btn btn-secondary" onClick={onEarlyAccess}>
-                            Get Early Access
                         </button>
                     </div>
                 </div>

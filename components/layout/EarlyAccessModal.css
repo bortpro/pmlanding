@@ -39,6 +39,21 @@
     transform: translateY(0);
 }
 
+/* ─── Calendly variant: wider, no padding so widget can fill ────────────────── */
+
+.modal--calendly {
+    max-width: 980px;
+    padding: 0;
+    overflow: hidden;
+    background: var(--color-white, #fff);
+}
+
+.modal__calendly-widget {
+    min-width: 320px;
+    width: 100%;
+    height: min(720px, calc(100vh - 80px));
+}
+
 /* ─── Close Button ──────────────────────────────────────────────────────────── */
 
 .modal__close {
@@ -50,87 +65,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: none;
-    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
     color: var(--text-muted);
     cursor: pointer;
+    z-index: 2;
     transition: background var(--transition-fast), color var(--transition-fast);
 }
 
 .modal__close:hover {
     background: var(--surface-2);
     color: var(--text-primary);
-}
-
-/* ─── Icon ──────────────────────────────────────────────────────────────────── */
-
-.modal__icon {
-    margin-bottom: var(--space-md);
-}
-
-/* ─── Content ───────────────────────────────────────────────────────────────── */
-
-.modal__headline {
-    font-family: var(--font-display);
-    font-size: 28px;
-    line-height: 34px;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: var(--space-sm);
-}
-
-.modal__subhead {
-    font-family: var(--font-ui);
-    font-size: 16px;
-    line-height: 24px;
-    color: var(--text-secondary);
-    margin-bottom: var(--space-xl);
-}
-
-/* ─── Calendly CTA ──────────────────────────────────────────────────────────── */
-
-.modal__calendly-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
-}
-
-/* ─── Divider ───────────────────────────────────────────────────────────────── */
-
-.modal__divider {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-block: var(--space-lg);
-    color: var(--text-muted);
-    font-family: var(--font-ui);
-    font-size: 12px;
-}
-
-.modal__divider::before,
-.modal__divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-}
-
-/* ─── Email Link ────────────────────────────────────────────────────────────── */
-
-.modal__email-link {
-    display: block;
-    text-align: center;
-    font-family: var(--font-ui);
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--accent);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-}
-
-.modal__email-link:hover {
-    color: var(--accent-hover);
-    text-decoration: underline;
 }
