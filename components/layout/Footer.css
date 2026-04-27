@@ -1,0 +1,164 @@
+/* ─── Footer ────────────────────────────────────────────────────────────────── */
+
+.footer {
+    position: relative;
+    background-color: var(--accent);
+    color: #FFFFFF;
+    overflow: hidden;
+}
+
+/* ── Mountain ridgeline transition from surface-2 above ── */
+.footer__ridge {
+    display: block;
+    width: 100%;
+    line-height: 0;
+    /* filled with --surface-2 (#F0EDE8) to bridge the CTA band */
+}
+
+/* ── Topographic texture overlay ── */
+.footer__topo {
+    position: absolute;
+    inset: 0;
+    opacity: 1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='200' cy='200' rx='180' ry='140' stroke='%23FFFFFF' stroke-width='0.75' fill='none'/%3E%3Cellipse cx='200' cy='200' rx='150' ry='115' stroke='%23FFFFFF' stroke-width='0.75' fill='none'/%3E%3Cellipse cx='195' cy='195' rx='120' ry='90' stroke='%23FFFFFF' stroke-width='0.75' fill='none'/%3E%3Cellipse cx='205' cy='198' rx='90' ry='68' stroke='%23FFFFFF' stroke-width='0.75' fill='none'/%3E%3Cellipse cx='198' cy='192' rx='60' ry='45' stroke='%23FFFFFF' stroke-width='0.75' fill='none'/%3E%3Cellipse cx='202' cy='205' rx='35' ry='25' stroke='%23FFFFFF' stroke-width='0.75' fill='none'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    /* rgba(255,255,255,0.04) = opacity 0.04 on the white strokes */
+    filter: opacity(0.04);
+}
+
+.footer__inner {
+    position: relative;
+    z-index: 1;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-lg) var(--space-2xl);
+}
+
+/* ─── Grid ──────────────────────────────────────────────────────────────────── */
+
+.footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Brand Column ──────────────────────────────────────────────────────────── */
+
+.footer__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.footer__wordmark {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFFFFF;
+    letter-spacing: -0.01em;
+}
+
+.footer__tagline {
+    font-family: var(--font-ui);
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: var(--space-lg);
+}
+
+.footer__copyright {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/* ─── Link Columns ──────────────────────────────────────────────────────────── */
+
+.footer__col-title {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: var(--space-lg);
+}
+
+.footer__col-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.footer__link {
+    font-family: var(--font-ui);
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer__link:hover {
+    color: #FFFFFF;
+}
+
+/* ─── Bottom Bar ────────────────────────────────────────────────────────────── */
+
+.footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-xl);
+}
+
+.footer__bottom-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.footer__bottom-link {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer__bottom-link:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer__bottom-sep {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 12px;
+}
+
+.footer__bottom-tagline {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+    font-style: normal;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .footer__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+    }
+}

@@ -1,0 +1,542 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+ * PLATFORM PAGE STYLES
+ * ProductMountain — section styles and mock-UI wireframes
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── SECTION 1: HERO ──────────────────────────────────────────────────────── */
+
+.prod-hero {
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    padding-top: calc(72px + var(--space-section));
+    padding-bottom: calc(var(--space-section) + 48px);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 48px), 0 100%);
+    text-align: center;
+}
+
+.prod-hero__inner {
+    max-width: 740px;
+}
+
+.prod-hero__title {
+    margin-bottom: var(--space-lg);
+}
+
+.prod-hero__sub {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xl);
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+/* Inverted button on dark bg */
+.btn--inverted {
+    background: var(--color-white);
+    color: var(--color-primary);
+}
+
+.btn--inverted:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* ── SECTION 2: LAYER DEEP-DIVES ─────────────────────────────────────────── */
+
+.layer {
+    padding-block: var(--space-section);
+}
+
+.layer--surface {
+    background-color: var(--color-surface);
+}
+
+.layer--white {
+    background-color: var(--color-white);
+}
+
+.layer__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+}
+
+.layer__grid--reverse {
+    direction: rtl;
+}
+
+.layer__grid--reverse>* {
+    direction: ltr;
+}
+
+.layer__badge {
+    margin-bottom: var(--space-md);
+}
+
+.layer__title {
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-lg);
+}
+
+.layer__bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.layer__bullets li {
+    font-size: var(--text-body-size);
+    line-height: var(--text-body-leading);
+    color: var(--color-text-secondary);
+    padding-left: var(--space-lg);
+    position: relative;
+}
+
+.layer__bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+}
+
+.layer__bullets li strong {
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+.layer__bullets li code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 14px;
+    background: rgba(37, 99, 235, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+
+    .layer__grid,
+    .layer__grid--reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+    }
+
+    .layer__visual {
+        order: -1;
+    }
+}
+
+/* ── MOCK UI WIREFRAMES ───────────────────────────────────────────────────── */
+
+.mock-ui {
+    border: none; /* Using shadow for border definition (glass/enterprise feel) */
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    background: var(--color-white);
+    box-shadow: var(--shadow-card);
+    font-family: var(--font-family);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.mock-ui:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.mock-ui__header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 16px;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.mock-ui__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-border);
+}
+
+.mock-ui__title {
+    margin-left: 8px;
+    font-size: 13px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+}
+
+.mock-ui__body {
+    padding: 20px;
+}
+
+/* Slack feedback modal wireframe */
+.mock-ui__field {
+    margin-bottom: 16px;
+}
+
+.mock-ui__label {
+    display: block;
+    font-size: 12px;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+}
+
+.mock-ui__input {
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--color-text-primary);
+    background: var(--color-white);
+}
+
+.mock-ui__actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.mock-ui__btn-primary {
+    padding: 8px 20px;
+    border-radius: 6px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-size: 13px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.mock-ui__btn-ghost {
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-muted);
+}
+
+/* Digest card wireframe */
+.mock-digest__theme {
+    margin-bottom: 16px;
+}
+
+.mock-digest__badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: var(--font-weight-semibold);
+    color: #DC2626;
+    background: rgba(220, 38, 38, 0.08);
+    padding: 3px 10px;
+    border-radius: 9999px;
+    margin-bottom: 8px;
+}
+
+.mock-digest__title {
+    font-size: 16px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 8px;
+}
+
+.mock-digest__meta {
+    display: flex;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--color-muted);
+}
+
+.mock-digest__quotes {
+    border-left: 2px solid var(--color-accent);
+    padding-left: 12px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mock-digest__quote {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin: 0;
+}
+
+.mock-digest__score {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mock-digest__score-label {
+    font-size: 12px;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.mock-digest__score-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--color-surface);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.mock-digest__score-fill {
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 3px;
+}
+
+.mock-digest__score-value {
+    font-size: 16px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-accent);
+}
+
+/* Slack status wireframe */
+.mock-status__msg {
+    display: flex;
+    gap: 12px;
+}
+
+.mock-status__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: var(--font-weight-bold);
+    flex-shrink: 0;
+}
+
+.mock-status__content {
+    flex: 1;
+    min-width: 0;
+}
+
+.mock-status__name {
+    font-size: 14px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-right: 8px;
+}
+
+.mock-status__time {
+    font-size: 12px;
+    color: var(--color-muted);
+}
+
+.mock-status__text {
+    margin-top: 4px;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--color-text-secondary);
+}
+
+.mock-status__text strong {
+    display: block;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.mock-status__text p {
+    margin: 2px 0;
+}
+
+.mock-status__tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-accent);
+    background: rgba(37, 99, 235, 0.08);
+    padding: 1px 8px;
+    border-radius: 4px;
+}
+
+.mock-status__detail {
+    font-size: 13px;
+    color: var(--color-muted);
+    margin-top: 4px;
+}
+
+/* ── SECTION 3: AGENTIC PRODUCT ───────────────────────────────────────────── */
+
+.plat-agentic {
+    background-color: var(--color-dark-section);
+    color: var(--color-white);
+    padding-block: calc(var(--space-section) + 48px);
+    clip-path: polygon(0 48px, 100% 0, 100% 100%, 0 100%);
+    text-align: center;
+}
+
+.plat-agentic__badge {
+    margin-bottom: var(--space-md);
+}
+
+.plat-agentic__title {
+    margin-bottom: var(--space-3xl);
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+.plat-agentic__flow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: var(--space-3xl);
+}
+
+.plat-agentic__step {
+    flex: 1;
+    max-width: 240px;
+    padding: 0 var(--space-md);
+}
+
+.plat-agentic__step-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--color-accent);
+    margin: 0 auto var(--space-md);
+}
+
+.plat-agentic__step-label {
+    font-size: 15px;
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-xs);
+}
+
+.plat-agentic__step-desc {
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.plat-agentic__connector {
+    display: flex;
+    align-items: center;
+    padding-top: 28px;
+    flex-shrink: 0;
+}
+
+.plat-agentic__cta {
+    margin-top: var(--space-md);
+}
+
+@media (max-width: 768px) {
+    .plat-agentic__flow {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-lg);
+    }
+
+    .plat-agentic__connector {
+        transform: rotate(90deg);
+        padding-top: 0;
+    }
+}
+
+/* ── SECTION 4: INTEGRATIONS ──────────────────────────────────────────────── */
+
+.plat-integrations {
+    background-color: var(--color-white);
+    padding-block: var(--space-section);
+}
+
+.plat-integrations__title {
+    text-align: center;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3xl);
+}
+
+.plat-integrations__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--color-border);
+    border-left: 1px solid var(--color-border);
+}
+
+.plat-integrations__card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    position: relative;
+    padding: var(--space-2xl) var(--space-xl);
+    background: transparent;
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color var(--transition-base);
+}
+
+.plat-integrations__card:hover {
+    background-color: var(--color-surface);
+}
+
+.plat-integrations__card-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.plat-integrations__card-name {
+    font-size: var(--text-h3-size);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+}
+
+.plat-integrations__card-desc {
+    font-size: 15px;
+    line-height: 22px;
+    color: var(--color-text-secondary);
+    flex: 1;
+}
+
+.plat-integrations__phase {
+    align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+    .plat-integrations__grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin-inline: auto;
+    }
+}
+
+/* ── SECTION 5: CTA BAND ─────────────────────────────────────────────────── */
+
+.plat-cta {
+    background-color: var(--color-white);
+    padding-block: var(--space-section);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.plat-cta__title {
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xl);
+}

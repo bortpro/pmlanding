@@ -1,0 +1,54 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Background: Yves Klein Blue -->
+  <rect width="1200" height="630" fill="#002FA7"/>
+
+  <!-- Mountain peaks: Colorado Orange -->
+  <!-- Far-left peak -->
+  <polygon points="0,630 160,320 320,630" fill="#E8820C" opacity="0.85"/>
+  <!-- Left-centre peak (tallest) -->
+  <polygon points="200,630 480,180 760,630" fill="#E8820C" opacity="0.9"/>
+  <!-- Right-centre peak -->
+  <polygon points="600,630 840,300 1080,630" fill="#E8820C" opacity="0.8"/>
+  <!-- Far-right peak -->
+  <polygon points="940,630 1120,390 1200,630" fill="#E8820C" opacity="0.75"/>
+
+  <!-- Dark overlay on bottom third to anchor peaks -->
+  <rect x="0" y="450" width="1200" height="180" fill="#002FA7" opacity="0.55"/>
+
+  <!-- Wordmark: "Climber" -->
+  <text
+    x="96"
+    y="248"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="72"
+    font-weight="700"
+    letter-spacing="-2"
+    fill="#FFFFFF"
+  >Climber</text>
+
+  <!-- Sub-brand: "by ProductMountain" -->
+  <text
+    x="96"
+    y="298"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="22"
+    font-weight="400"
+    fill="rgba(255,255,255,0.45)"
+  >by ProductMountain</text>
+
+  <!-- Divider line -->
+  <line x1="96" y1="326" x2="176" y2="326" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+  <!-- Tagline -->
+  <text
+    x="96"
+    y="362"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="18"
+    font-weight="400"
+    letter-spacing="0.02em"
+    fill="rgba(255,255,255,0.55)"
+  >Automated revenue risk escalations</text>
+
+</svg>

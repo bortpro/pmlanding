@@ -1,0 +1,116 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+ * RESOURCES PAGE STYLES
+ * ProductMountain — blog index, newsletter
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── SECTION 1: HERO ──────────────────────────────────────────────────────── */
+
+.res-hero {
+    background-color: var(--bg);
+    padding-top: calc(72px + var(--space-section));
+    padding-bottom: var(--space-3xl);
+    text-align: center;
+}
+
+.res-hero__inner {
+    max-width: 680px;
+}
+
+.res-hero__title {
+    font-family: var(--font-display);
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.res-hero__sub {
+    font-family: var(--font-ui);
+    color: var(--text-secondary);
+}
+
+/* ── SECTION 2: BLOG POSTS ────────────────────────────────────────────────── */
+
+.res-blog {
+    background-color: var(--bg);
+    padding-bottom: var(--space-section);
+}
+
+.res-blog__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+    .res-blog__grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin-inline: auto;
+    }
+}
+
+/* ── SECTION 3: NEWSLETTER ────────────────────────────────────────────────── */
+
+.res-newsletter {
+    background-color: var(--accent);
+    padding-block: 64px;
+    text-align: center;
+}
+
+.res-newsletter__inner {
+    max-width: 560px;
+}
+
+.res-newsletter__title {
+    font-family: var(--font-display);
+    color: #FFFFFF;
+    margin-bottom: var(--space-sm);
+}
+
+.res-newsletter__sub {
+    font-family: var(--font-ui);
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: var(--space-xl);
+}
+
+.res-newsletter__form {
+    display: flex;
+    gap: var(--space-sm);
+    max-width: 420px;
+    margin-inline: auto;
+}
+
+.res-newsletter__input {
+    flex: 1;
+}
+
+/* Dark background input overrides */
+.res-newsletter .input {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
+    box-shadow: none;
+}
+
+.res-newsletter .input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.res-newsletter .input:focus {
+    border-color: var(--accent-2);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 3px rgba(232, 130, 12, 0.25);
+}
+
+.res-newsletter__success {
+    font-family: var(--font-ui);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--forest-light);
+}
+
+@media (max-width: 640px) {
+    .res-newsletter__form {
+        flex-direction: column;
+    }
+}

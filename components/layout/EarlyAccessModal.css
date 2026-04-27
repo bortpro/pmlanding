@@ -1,0 +1,136 @@
+/* ─── Early Access Modal ────────────────────────────────────────────────────── */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(26, 23, 20, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-slow), visibility var(--transition-slow);
+    padding: var(--space-lg);
+}
+
+.modal-overlay--open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ─── Modal Box ─────────────────────────────────────────────────────────────── */
+
+.modal {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(16px);
+    transition: transform var(--transition-slow);
+}
+
+.modal-overlay--open .modal {
+    transform: translateY(0);
+}
+
+/* ─── Close Button ──────────────────────────────────────────────────────────── */
+
+.modal__close {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    border-radius: var(--radius);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.modal__close:hover {
+    background: var(--surface-2);
+    color: var(--text-primary);
+}
+
+/* ─── Icon ──────────────────────────────────────────────────────────────────── */
+
+.modal__icon {
+    margin-bottom: var(--space-md);
+}
+
+/* ─── Content ───────────────────────────────────────────────────────────────── */
+
+.modal__headline {
+    font-family: var(--font-display);
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.modal__subhead {
+    font-family: var(--font-ui);
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xl);
+}
+
+/* ─── Calendly CTA ──────────────────────────────────────────────────────────── */
+
+.modal__calendly-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* ─── Divider ───────────────────────────────────────────────────────────────── */
+
+.modal__divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-block: var(--space-lg);
+    color: var(--text-muted);
+    font-family: var(--font-ui);
+    font-size: 12px;
+}
+
+.modal__divider::before,
+.modal__divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+/* ─── Email Link ────────────────────────────────────────────────────────────── */
+
+.modal__email-link {
+    display: block;
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.modal__email-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}

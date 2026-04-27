@@ -1,0 +1,313 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+ * PRICING PAGE STYLES
+ * Climber by ProductMountain
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── SECTION 1: HERO ──────────────────────────────────────────────────────── */
+
+.price-hero {
+    background-color: var(--bg);
+    padding-top: calc(72px + var(--space-section));
+    padding-bottom: var(--space-3xl);
+    text-align: center;
+}
+
+.price-hero__inner {
+    max-width: 680px;
+}
+
+.price-hero__title {
+    font-family: var(--font-display);
+    font-size: 56px;
+    line-height: 60px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.price-hero__sub {
+    font-family: var(--font-ui);
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--text-secondary);
+}
+
+/* ── SECTION 2: PRICING CARDS ─────────────────────────────────────────────── */
+
+.price-cards {
+    background-color: var(--bg);
+    padding-block: var(--space-section);
+}
+
+.price-cards__inner {
+    max-width: 900px;
+}
+
+.price-cards__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+}
+
+/* ── Base card ── */
+.price-card {
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-md);
+}
+
+/* ── Card 1: Climber Pro ── */
+.price-card--pro {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+}
+
+/* ── Card 2: Climber Enterprise ── */
+.price-card--enterprise {
+    background: var(--accent-2-light);
+    border: 1px solid var(--accent-2-mid);
+    border-top: 3px solid var(--accent-2);
+}
+
+/* ── Enterprise badge ── */
+.price-card__enterprise-top {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.price-card__badge {
+    display: inline-block;
+    background: var(--accent-2-light);
+    color: var(--accent-2);
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: var(--radius);
+    width: fit-content;
+    border: 1px solid var(--accent-2-mid);
+}
+
+/* ── Card name ── */
+.price-card__name {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+    margin-top: var(--space-sm);
+}
+
+.price-card--pro .price-card__name {
+    margin-top: 0;
+}
+
+/* ── Price block ── */
+.price-card__price-block {
+    margin-bottom: var(--space-xl);
+}
+
+.price-card__price {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 6px;
+    font-feature-settings: 'tnum';
+}
+
+.price-card__price--talk {
+    font-size: 40px;
+}
+
+.price-card__per {
+    font-family: var(--font-ui);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0;
+}
+
+.price-card__billing {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.price-card__billing-alt {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* ── CTA ── */
+.price-card__cta {
+    width: 100%;
+    margin-bottom: var(--space-xl);
+}
+
+/* ── Feature list ── */
+.price-card__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.price-card__features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: var(--font-ui);
+    font-size: 15px;
+    line-height: 22px;
+    color: var(--text-secondary);
+}
+
+.price-card__features li svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+@media (max-width: 640px) {
+    .price-cards__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-card {
+        padding: var(--space-xl);
+    }
+
+    .price-hero__title {
+        font-size: 40px;
+        line-height: 48px;
+    }
+}
+
+/* ── SECTION 3: FAQ ───────────────────────────────────────────────────────── */
+
+.faq {
+    background-color: var(--surface);
+    padding-block: var(--space-section);
+}
+
+.faq__inner {
+    max-width: 680px;
+}
+
+.faq__title {
+    font-family: var(--font-display);
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+}
+
+.faq__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq__item {
+    border-bottom: 1px solid var(--border);
+}
+
+.faq__item:first-child {
+    border-top: 1px solid var(--border);
+}
+
+.faq__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--space-lg) 0;
+    background: none;
+    border: none;
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: left;
+    cursor: pointer;
+    gap: var(--space-md);
+    transition: color var(--transition-fast);
+}
+
+.faq__question:hover {
+    color: var(--accent);
+}
+
+.faq__chevron {
+    flex-shrink: 0;
+    color: var(--text-muted);
+    transition: transform 300ms ease;
+}
+
+.faq__item--open .faq__chevron {
+    transform: rotate(180deg);
+}
+
+.faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 300ms ease, padding 300ms ease;
+}
+
+.faq__item--open .faq__answer {
+    max-height: 300px;
+}
+
+.faq__answer p {
+    padding-bottom: var(--space-lg);
+    font-family: var(--font-ui);
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ── SECTION 4: CTA BAND ─────────────────────────────────────────────────── */
+
+.price-cta {
+    background-color: var(--accent);
+    padding-block: var(--space-section);
+    text-align: center;
+}
+
+.price-cta__inner {
+    max-width: 600px;
+}
+
+.price-cta__title {
+    font-family: var(--font-display);
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    margin-bottom: var(--space-sm);
+}
+
+.price-cta__sub {
+    font-family: var(--font-ui);
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--space-xl);
+}
