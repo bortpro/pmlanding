@@ -1,0 +1,126 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+ * LEGAL PAGES STYLES
+ * Shared by /privacy and /terms
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+.legal-page {
+    background-color: var(--bg);
+}
+
+.legal-hero {
+    padding-top: calc(72px + var(--space-section));
+    padding-bottom: var(--space-2xl);
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.legal-hero__inner {
+    max-width: 760px;
+}
+
+.legal-hero__title {
+    font-family: var(--font-display);
+    font-size: 56px;
+    line-height: 60px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.legal-hero__meta {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.legal-body {
+    padding-block: var(--space-section);
+}
+
+.legal-body__inner {
+    max-width: 760px;
+}
+
+.legal-body__lead {
+    font-family: var(--font-ui);
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2xl);
+}
+
+.legal-body h2 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+}
+
+.legal-body h2:first-of-type {
+    margin-top: 0;
+}
+
+.legal-body h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+}
+
+.legal-body p,
+.legal-body li {
+    font-family: var(--font-ui);
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--text-secondary);
+}
+
+.legal-body p {
+    margin-bottom: var(--space-md);
+}
+
+.legal-body ul,
+.legal-body ol {
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-md);
+}
+
+.legal-body li {
+    margin-bottom: var(--space-sm);
+}
+
+.legal-body a {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--transition-fast);
+}
+
+.legal-body a:hover {
+    color: var(--accent);
+}
+
+.legal-body strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+@media (max-width: 640px) {
+    .legal-hero__title {
+        font-size: 40px;
+        line-height: 48px;
+    }
+
+    .legal-body h2 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
