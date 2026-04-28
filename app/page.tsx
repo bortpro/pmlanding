@@ -206,73 +206,96 @@ const HeroDataPipeline = () => (
 );
 
 /* ─────────────────────────────────────────────────────────────────────────────
- * Placeholder integration logos — TODO: replace with real logos
+ * Bento mini-visuals — small product mockups embedded in each problem tile
  * ────────────────────────────────────────────────────────────────────────── */
 
-const INTEGRATION_LIST = [
-    {
-        name: 'Gong',
-        icon: (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 8v8 M8 12h8" />
-            </svg>
-        )
-    },
-    {
-        name: 'Granola',
-        icon: (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 9c0-3 2-6 7-6s7 3 7 6c0 4-3 7-7 7s-7-3-7-7z" />
-                <path d="M9 21l3-5 3 5" />
-            </svg>
-        )
-    },
-    {
-        name: 'HubSpot',
-        icon: (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="4" />
-                <path d="M12 8v-4 M12 16v4 M8 12h-4 M16 12h4" />
-            </svg>
-        )
-    },
-    {
-        name: 'Jira',
-        icon: (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2L2 12l10 10 10-10L12 2z" />
-            </svg>
-        )
-    },
-    {
-        name: 'Slack',
-        icon: (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 10h12 M6 14h12 M10 6v12 M14 6v12" />
-            </svg>
-        )
-    },
-    {
-        name: 'Salesforce',
-        icon: (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
-            </svg>
-        )
-    }
-];
+const BentoVisualRevenue = () => (
+    <div className="bento-visual bento-visual--revenue" aria-hidden="true">
+        <div className="bento-visual__chip">
+            <span className="bento-visual__chip-label">NRR · this quarter</span>
+            <span className="bento-visual__chip-value">+24%</span>
+        </div>
+        <svg className="bento-visual__sparkline" viewBox="0 0 140 56" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="sparkFill" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stopColor="var(--accent-2)" stopOpacity="0.35" />
+                    <stop offset="100%" stopColor="var(--accent-2)" stopOpacity="0" />
+                </linearGradient>
+            </defs>
+            <path d="M0,46 L20,42 L40,38 L60,28 L80,22 L100,14 L120,10 L140,4 L140,56 L0,56 Z" fill="url(#sparkFill)" />
+            <path d="M0,46 L20,42 L40,38 L60,28 L80,22 L100,14 L120,10 L140,4" fill="none" stroke="var(--accent-2)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <div className="bento-visual__legend">
+            <span className="bento-visual__dot bento-visual__dot--accent2" />
+            <span>Pipeline retained</span>
+            <span className="bento-visual__legend-value">$2.4M</span>
+        </div>
+    </div>
+);
 
-const IntegrationGrid = () => (
-    <>
-        {INTEGRATION_LIST.map((item) => (
-            <div key={item.name} className="integration__logo">
-                {item.icon}
-                <span>{item.name}</span>
+const BentoVisualSlack = () => (
+    <div className="bento-visual bento-visual--slack" aria-hidden="true">
+        <div className="bento-visual__slack-header">
+            <span className="bento-visual__slack-channel">#product-platform</span>
+            <span className="bento-visual__slack-time">now</span>
+        </div>
+        <div className="bento-visual__slack-row">
+            <span className="bento-visual__slack-avatar">C</span>
+            <div className="bento-visual__slack-body">
+                <div className="bento-visual__slack-name">
+                    Climber <span className="bento-visual__slack-app">APP</span>
+                </div>
+                <div className="bento-visual__slack-msg">
+                    New escalation routed to <strong>@platform-team</strong>
+                </div>
+                <div className="bento-visual__slack-meta">
+                    <span className="bento-visual__pill">SSO · $120K ARR</span>
+                </div>
+            </div>
+        </div>
+    </div>
+);
+
+const BentoVisualPriority = () => (
+    <div className="bento-visual bento-visual--priority" aria-hidden="true">
+        <div className="bento-visual__priority-header">
+            <span>Top requests</span>
+            <span>ARR impact</span>
+        </div>
+        {[
+            { rank: 1, label: 'Advanced Analytics API', value: '$2.4M', tone: 'hot' },
+            { rank: 2, label: 'Enterprise SSO', value: '$850K', tone: 'mid' },
+            { rank: 3, label: 'Bulk export sync', value: '$420K', tone: 'low' },
+        ].map((row) => (
+            <div className="bento-visual__priority-row" key={row.rank}>
+                <span className={`bento-visual__priority-rank bento-visual__priority-rank--${row.tone}`}>{row.rank}</span>
+                <span className="bento-visual__priority-label">{row.label}</span>
+                <span className="bento-visual__priority-value">{row.value}</span>
             </div>
         ))}
-    </>
+    </div>
 );
+
+const BentoVisualIntegrations = () => {
+    const tiles = [
+        { src: '/logos/Gong.png', name: 'Gong' },
+        { src: '/logos/granola.png', name: 'Granola' },
+        { src: '/logos/hubspot.png', name: 'HubSpot' },
+        { src: '/logos/jira.png', name: 'Jira' },
+        { src: '/logos/Slack.png', name: 'Slack' },
+        { src: '/logos/Salesforce.png', name: 'Salesforce' },
+    ];
+    return (
+        <div className="bento-visual bento-visual--integrations" aria-hidden="true">
+            {tiles.map((t) => (
+                <span key={t.name} className="bento-visual__integration" title={t.name}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={t.src} alt="" />
+                </span>
+            ))}
+        </div>
+    );
+};
 
 const MockTaxonomy = () => (
     <div className="mock-demo mock-taxonomy" aria-hidden="true" style={{ background: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: '0px', padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -348,6 +371,85 @@ const IconAlert = () => (
     </svg>
 );
 
+const HIWVisualIngest = () => (
+    <div className="hiw-visual hiw-visual--ingest" aria-hidden="true">
+        <div className="hiw-visual__live-tag">
+            <span className="hiw-visual__live-dot" />
+            Live signals
+        </div>
+        {[
+            { source: 'Gong', kind: 'Call', body: '"...we need analytics APIs before renewal."', tone: 'accent' },
+            { source: 'Slack', kind: '/feedback', body: 'Customer asked about bulk export sync', tone: 'mid' },
+            { source: 'Granola', kind: 'Note', body: 'QBR sentiment trending down', tone: 'muted' },
+        ].map((item) => (
+            <div key={item.source} className={`hiw-visual__signal hiw-visual__signal--${item.tone}`}>
+                <span className="hiw-visual__signal-source">{item.source}</span>
+                <span className="hiw-visual__signal-kind">{item.kind}</span>
+                <span className="hiw-visual__signal-body">{item.body}</span>
+            </div>
+        ))}
+    </div>
+);
+
+const HIWVisualContextualize = () => (
+    <div className="hiw-visual hiw-visual--context" aria-hidden="true">
+        <div className="hiw-visual__context-header">
+            <span className="hiw-visual__context-account">Pied Piper</span>
+            <span className="hiw-visual__context-arr">$2.4M ARR</span>
+        </div>
+        <div className="hiw-visual__context-tag">Theme · Advanced Analytics API</div>
+        <div className="hiw-visual__context-meters">
+            <div className="hiw-visual__meter">
+                <span className="hiw-visual__meter-label">Sentiment</span>
+                <div className="hiw-visual__meter-bar">
+                    <span className="hiw-visual__meter-fill hiw-visual__meter-fill--low" style={{ width: '32%' }} />
+                </div>
+                <span className="hiw-visual__meter-value">0.32</span>
+            </div>
+            <div className="hiw-visual__meter">
+                <span className="hiw-visual__meter-label">Renewal</span>
+                <div className="hiw-visual__meter-bar">
+                    <span className="hiw-visual__meter-fill hiw-visual__meter-fill--mid" style={{ width: '60%' }} />
+                </div>
+                <span className="hiw-visual__meter-value">60d</span>
+            </div>
+            <div className="hiw-visual__meter">
+                <span className="hiw-visual__meter-label">Priority</span>
+                <div className="hiw-visual__meter-bar">
+                    <span className="hiw-visual__meter-fill hiw-visual__meter-fill--high" style={{ width: '88%' }} />
+                </div>
+                <span className="hiw-visual__meter-value">88</span>
+            </div>
+        </div>
+        <div className="hiw-visual__context-badges">
+            <span className="hiw-visual__badge hiw-visual__badge--risk">Revenue risk</span>
+            <span className="hiw-visual__badge hiw-visual__badge--theme">Roadmap fit</span>
+        </div>
+    </div>
+);
+
+const HIWVisualEscalate = () => (
+    <div className="hiw-visual hiw-visual--escalate" aria-hidden="true">
+        <div className="hiw-visual__alert-header">
+            <span className="hiw-visual__alert-channel">#cs-escalations</span>
+            <span className="hiw-visual__alert-time">just now</span>
+        </div>
+        <div className="hiw-visual__alert-body">
+            <div className="hiw-visual__alert-title-row">
+                <span className="hiw-visual__alert-badge">Revenue risk</span>
+                <span className="hiw-visual__alert-arr">$2.4M ARR</span>
+            </div>
+            <div className="hiw-visual__alert-title">Pied Piper · Renewal in 60d</div>
+            <div className="hiw-visual__alert-msg">
+                "Evaluating alternatives" — sentiment 0.32. Recommend executive check-in this week.
+            </div>
+            <div className="hiw-visual__alert-actions">
+                <span className="hiw-visual__alert-cta">Schedule check-in →</span>
+            </div>
+        </div>
+    </div>
+);
+
 const HIW_STEPS = [
     {
         icon: <IconConnect />,
@@ -358,6 +460,7 @@ const HIW_STEPS = [
         stepClass: 'how-it-works__step--1',
         iconClass: 'how-it-works__icon--1',
         labelClass: 'how-it-works__label--1',
+        visual: <HIWVisualIngest />,
     },
     {
         icon: <IconAnalyze />,
@@ -368,6 +471,7 @@ const HIW_STEPS = [
         stepClass: 'how-it-works__step--2',
         iconClass: 'how-it-works__icon--2',
         labelClass: 'how-it-works__label--2',
+        visual: <HIWVisualContextualize />,
     },
     {
         icon: <IconAlert />,
@@ -378,6 +482,7 @@ const HIW_STEPS = [
         stepClass: 'how-it-works__step--3',
         iconClass: 'how-it-works__icon--3',
         labelClass: 'how-it-works__label--3',
+        visual: <HIWVisualEscalate />,
     },
 ];
 
@@ -445,29 +550,48 @@ export default function HomePage() {
                         Building has never been easier. Make sure you build what your customers actually need.
                     </h2>
                     <div className="problem-bar__bento">
-                        <div className="bento-tile bento-tile--cream-rect">
-                            <h3 className="bento-tile__title">Maximize ARR and NRR</h3>
-                            <p className="bento-tile__body">
-                                We&apos;re the go-between from users to product, ensuring customer requirements get onto the roadmap.
-                            </p>
+                        <div className="bento-tile bento-tile--cream-blob">
+                            <div className="bento-tile__copy">
+                                <span className="bento-tile__eyebrow">Outcomes</span>
+                                <h3 className="bento-tile__title">Maximize ARR &amp; NRR</h3>
+                                <p className="bento-tile__body">
+                                    We&apos;re the go-between from users to product, ensuring customer requirements get onto the roadmap.
+                                </p>
+                            </div>
+                            <BentoVisualRevenue />
                         </div>
-                        <div className="bento-tile bento-tile--deep-pill">
-                            <h3 className="bento-tile__title">Right place, right time</h3>
-                            <p className="bento-tile__body">
-                                Don&apos;t let feature requests get lost in a spreadsheet — automatically escalate signals to the right teams as soon as they&apos;re available.
-                            </p>
+
+                        <div className="bento-tile bento-tile--deep-rect">
+                            <div className="bento-tile__copy">
+                                <span className="bento-tile__eyebrow">Routing</span>
+                                <h3 className="bento-tile__title">Right place, right time</h3>
+                                <p className="bento-tile__body">
+                                    Don&apos;t let feature requests get lost in a spreadsheet — automatically escalate signals to the right teams as soon as they&apos;re available.
+                                </p>
+                            </div>
+                            <BentoVisualSlack />
                         </div>
-                        <div className="bento-tile bento-tile--accent-pill">
-                            <h3 className="bento-tile__title">Build what matters</h3>
-                            <p className="bento-tile__body">
-                                Prioritize the right things, not just the loudest ones, with comprehensive impact scoring and cross-request analysis.
-                            </p>
-                        </div>
+
                         <div className="bento-tile bento-tile--glass-rect">
-                            <h3 className="bento-tile__title">No added effort</h3>
-                            <p className="bento-tile__body">
-                                Connect the call recording tools, CRMs, and chat tools your team already uses. No new app for anyone to learn.
-                            </p>
+                            <div className="bento-tile__copy">
+                                <span className="bento-tile__eyebrow">Prioritization</span>
+                                <h3 className="bento-tile__title">Build what matters</h3>
+                                <p className="bento-tile__body">
+                                    Prioritize the right things, not just the loudest ones, with comprehensive impact scoring and cross-request analysis.
+                                </p>
+                            </div>
+                            <BentoVisualPriority />
+                        </div>
+
+                        <div className="bento-tile bento-tile--accent-blob">
+                            <div className="bento-tile__copy">
+                                <span className="bento-tile__eyebrow">Integration</span>
+                                <h3 className="bento-tile__title">No added effort</h3>
+                                <p className="bento-tile__body">
+                                    Connect the call recording tools, CRMs, and chat tools your team already uses. No new app for anyone to learn.
+                                </p>
+                            </div>
+                            <BentoVisualIntegrations />
                         </div>
                     </div>
                 </div>
@@ -485,41 +609,26 @@ export default function HomePage() {
                         </p>
                     </div>
                     <div className="how-it-works__steps">
-                        {HIW_STEPS.map((step, i) => (
-                            <React.Fragment key={step.title}>
-                                <div className={`how-it-works__step ${step.stepClass}`}>
-                                    <span className="how-it-works__step-number" aria-hidden="true">{step.stepNum}</span>
-                                    <div className={`how-it-works__icon ${step.iconClass}`}>
-                                        {step.icon}
-                                    </div>
+                        {HIW_STEPS.map((step) => (
+                            <div className={`how-it-works__step ${step.stepClass}`} key={step.title}>
+                                <div className="how-it-works__step-top">
+                                    <span className={`how-it-works__step-num ${step.labelClass}`}>{step.stepNum}</span>
                                     <span className={`how-it-works__label ${step.labelClass}`}>{step.label}</span>
+                                </div>
+                                <div className={`how-it-works__visual-wrap how-it-works__visual-wrap--${step.stepNum}`}>
+                                    {step.visual}
+                                </div>
+                                <div className="how-it-works__copy">
                                     <h3 className="how-it-works__step-title">{step.title}</h3>
                                     <p className="how-it-works__desc">{step.description}</p>
                                 </div>
-                                {i < HIW_STEPS.length - 1 && (
-                                    <div className="how-it-works__connector" aria-hidden="true">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                            <path d="M9 18l6-6-6-6" stroke="var(--border-strong)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </div>
-                                )}
-                            </React.Fragment>
+                            </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* ── SECTION 4: INTEGRATION STRIP ───────────────────────────────── */}
-            <section className="integrations" id="integrations">
-                <div className="integrations__inner container">
-                    <h3 className="integrations__title text-h3">Connects with your stack</h3>
-                    <div className="integrations__logos" style={{ marginTop: '32px' }}>
-                        <IntegrationGrid />
-                    </div>
-                </div>
-            </section>
-
-            {/* ── SECTION 5: FEATURE HIGHLIGHTS ──────────────────────────────── */}
+            {/* ── SECTION 4: FEATURE HIGHLIGHTS ──────────────────────────────── */}
             <section className="features" id="platform">
                 <div className="features__inner container">
                     <div className="features__grid">

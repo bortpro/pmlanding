@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { openDemoModal } from '../../components/layout/demoModal';
 import './page.css';
 
@@ -33,33 +33,6 @@ const ENTERPRISE_FEATURES = [
 ];
 
 /* ─────────────────────────────────────────────────────────────────────────────
- * FAQ data
- * ────────────────────────────────────────────────────────────────────────── */
-
-const FAQS = [
-    {
-        q: 'What do I need to get started?',
-        a: 'A Gong workspace and a Slack workspace. We handle the rest — setup takes under 10 minutes.',
-    },
-    {
-        q: 'How does Climber access my Gong data?',
-        a: "You grant Climber read-only access to your Gong transcripts via Gong's API. We never record calls or access audio — only transcripts.",
-    },
-    {
-        q: 'What if I have more than 50 accounts?',
-        a: "The Enterprise plan supports unlimited accounts. Book a call and we'll scope it for your team.",
-    },
-    {
-        q: 'Is my data secure?',
-        a: "All data is encrypted in transit and at rest. We're pursuing SOC 2 Type II certification, targeted for Q3 2026. We can provide our security questionnaire on request.",
-    },
-    {
-        q: 'Can I cancel anytime?',
-        a: 'Monthly plans can be cancelled anytime. Annual plans include a 30-day money-back guarantee.',
-    },
-];
-
-/* ─────────────────────────────────────────────────────────────────────────────
  * Sub-components
  * ────────────────────────────────────────────────────────────────────────── */
 
@@ -81,33 +54,12 @@ const CheckEnterprise: React.FC = () => (
     </svg>
 );
 
-const FaqItem: React.FC<{
-    question: string;
-    answer: string;
-    isOpen: boolean;
-    onToggle: () => void;
-}> = ({ question, answer, isOpen, onToggle }) => (
-    <div className={`faq__item ${isOpen ? 'faq__item--open' : ''}`}>
-        <button className="faq__question" onClick={onToggle} aria-expanded={isOpen}>
-            <span>{question}</span>
-            <svg className="faq__chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M5 7.5l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-        </button>
-        <div className="faq__answer">
-            <p>{answer}</p>
-        </div>
-    </div>
-);
-
 /* ═══════════════════════════════════════════════════════════════════════════
  * PRICING PAGE COMPONENT
  * ═══════════════════════════════════════════════════════════════════════════ */
 
 export default function PricingPage() {
     const handleDemo = openDemoModal;
-    const [openFaq, setOpenFaq] = useState<number | null>(null);
-    const toggleFaq = (i: number) => setOpenFaq(openFaq === i ? null : i);
 
     return (
         <main className="pricing-page">
@@ -203,25 +155,7 @@ export default function PricingPage() {
                 </div>
             </section>
 
-            {/* ── SECTION 3: FAQ ───────────────────────────────────────────── */}
-            <section className="faq" id="faq">
-                <div className="faq__inner container">
-                    <h2 className="faq__title">Questions</h2>
-                    <div className="faq__list">
-                        {FAQS.map((faq, i) => (
-                            <FaqItem
-                                key={i}
-                                question={faq.q}
-                                answer={faq.a}
-                                isOpen={openFaq === i}
-                                onToggle={() => toggleFaq(i)}
-                            />
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ── SECTION 4: CTA BAND ──────────────────────────────────────── */}
+            {/* ── SECTION 3: CTA BAND ──────────────────────────────────────── */}
             <section className="price-cta">
                 <div className="price-cta__inner container">
                     <h2 className="price-cta__title">
