@@ -48,69 +48,27 @@
     }
 }
 
-/* ── SECTION 3: NEWSLETTER ────────────────────────────────────────────────── */
+/* ── SECTION 3: TALK TO US CTA ────────────────────────────────────────────── */
 
-.res-newsletter {
+.res-cta {
     background-color: var(--accent);
     padding-block: 64px;
     text-align: center;
 }
 
-.res-newsletter__inner {
-    max-width: 560px;
+.res-cta__inner {
+    max-width: 640px;
 }
 
-.res-newsletter__title {
+.res-cta__title {
     font-family: var(--font-display);
     color: #FFFFFF;
     margin-bottom: var(--space-sm);
 }
 
-.res-newsletter__sub {
+.res-cta__sub {
     font-family: var(--font-ui);
     font-size: 15px;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: var(--space-xl);
-}
-
-.res-newsletter__form {
-    display: flex;
-    gap: var(--space-sm);
-    max-width: 420px;
-    margin-inline: auto;
-}
-
-.res-newsletter__input {
-    flex: 1;
-}
-
-/* Dark background input overrides */
-.res-newsletter .input {
-    border-color: rgba(255, 255, 255, 0.15);
-    background: rgba(255, 255, 255, 0.08);
-    color: #FFFFFF;
-    box-shadow: none;
-}
-
-.res-newsletter .input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-}
-
-.res-newsletter .input:focus {
-    border-color: var(--accent-2);
-    background: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 0 0 3px rgba(232, 130, 12, 0.25);
-}
-
-.res-newsletter__success {
-    font-family: var(--font-ui);
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--forest-light);
-}
-
-@media (max-width: 640px) {
-    .res-newsletter__form {
-        flex-direction: column;
-    }
 }

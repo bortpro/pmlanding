@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { BlogPostCard, type BlogPost } from './blog-index-section';
+import { openDemoModal } from '../../components/layout/demoModal';
 import './page.css';
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -40,17 +41,6 @@ const BLOG_POSTS: BlogPost[] = [
  * ═══════════════════════════════════════════════════════════════════════════ */
 
 export default function ResourcesPage() {
-    const [email, setEmail] = useState('');
-    const [subscribed, setSubscribed] = useState(false);
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!email.trim()) return;
-        // TODO: wire up to email provider
-        console.log('[ProductMountain] Newsletter subscribe:', email);
-        setSubscribed(true);
-    };
-
     return (
         <main className="resources-page">
 
@@ -77,36 +67,22 @@ export default function ResourcesPage() {
                 </div>
             </section>
 
-            {/* ── SECTION 3: NEWSLETTER ────────────────────────────────────── */}
-            <section className="res-newsletter">
-                <div className="res-newsletter__inner container">
-                    <h2 className="res-newsletter__title text-h1">
-                        Get what we&apos;re learning
+            {/* ── SECTION 3: TALK TO US CTA ────────────────────────────────── */}
+            <section className="res-cta">
+                <div className="res-cta__inner container">
+                    <h2 className="res-cta__title text-h1">
+                        Want to talk through what you&apos;re seeing?
                     </h2>
-                    <p className="res-newsletter__sub">
-                        Frameworks, insights, and product updates for CS and revenue leaders. No fluff.
+                    <p className="res-cta__sub">
+                        Bring your CS-to-product feedback loop to life. We&apos;ll show you how ProductMountain fits in 30 minutes.
                     </p>
-
-                    {subscribed ? (
-                        <p className="res-newsletter__success">
-                            ✓ You&apos;re in. Check your inbox soon.
-                        </p>
-                    ) : (
-                        <form className="res-newsletter__form" onSubmit={handleSubmit}>
-                            <input
-                                type="email"
-                                required
-                                placeholder="Work email address"
-                                className="input res-newsletter__input"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                autoComplete="email"
-                            />
-                            <button type="submit" className="btn btn-accent">
-                                Subscribe
-                            </button>
-                        </form>
-                    )}
+                    <button
+                        type="button"
+                        onClick={openDemoModal}
+                        className="btn btn-accent btn-accent--lg"
+                    >
+                        Talk to us
+                    </button>
                 </div>
             </section>
 
