@@ -35,7 +35,7 @@ const MockSlackCard = () => (
         </div>
 
         {/* Account name */}
-        <p className="slack-card__account">Acme Corp — $85K ARR</p>
+        <p className="slack-card__account">Acme Corp · $85K ARR</p>
 
         {/* Alert message */}
         <p className="slack-card__message">
@@ -297,6 +297,30 @@ const BentoVisualIntegrations = () => {
     );
 };
 
+const MockReporting = () => (
+    <div className="mock-demo mock-reporting" aria-hidden="true" style={{ background: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: '0px', padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--color-border)', paddingBottom: '10px' }}>
+            <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--color-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Boardroom Report</span>
+            <span style={{ fontSize: '10px', color: 'var(--color-success)', background: 'var(--color-surface)', padding: '2px 6px', fontWeight: 600 }}>Q3 IMPACT</span>
+        </div>
+        <div style={{ display: 'flex', gap: '8px' }}>
+            <div style={{ flex: 1, background: 'var(--color-surface)', padding: '8px 10px', borderLeft: '2px solid var(--color-success)' }}>
+                <div style={{ fontSize: '10px', color: 'var(--color-muted)', textTransform: 'uppercase', fontWeight: 600 }}>ARR Unlocked</div>
+                <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--color-text-primary)' }}>$2.4M</div>
+            </div>
+            <div style={{ flex: 1, background: 'var(--color-surface)', padding: '8px 10px', borderLeft: '2px solid #2563EB' }}>
+                <div style={{ fontSize: '10px', color: 'var(--color-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Preserved</div>
+                <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--color-text-primary)' }}>$1.1M</div>
+            </div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'flex-end', gap: '4px', height: '36px' }}>
+            {[28, 42, 36, 58, 52, 70, 64, 82].map((h, i) => (
+                <div key={i} style={{ flex: 1, height: `${h}%`, background: i > 5 ? 'var(--color-success)' : '#94A3B8' }} />
+            ))}
+        </div>
+    </div>
+);
+
 const MockTaxonomy = () => (
     <div className="mock-demo mock-taxonomy" aria-hidden="true" style={{ background: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: '0px', padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--color-border)', paddingBottom: '10px' }}>
@@ -325,7 +349,7 @@ const FEATURES = [
     {
         visual: <MockAlertCard />,
         title: 'Capture',
-        body: 'Slack /feedback command. Call transcripts from Gong, Granola, and other tools monitored automatically. CRM data synced. Two fields, thirty seconds — no new app for anyone to learn.',
+        body: 'Slack /feedback command. Call transcripts from Gong, Granola, and other tools monitored automatically. CRM data synced. Two fields, thirty seconds, no new app for anyone to learn.',
     },
     {
         visual: <MockInsightDashboard />,
@@ -341,6 +365,11 @@ const FEATURES = [
         visual: <MockRoadmapSync />,
         title: 'Visibility',
         body: 'CS knows where every request stands. Product has a decision log with reasons. Leadership sees the full revenue picture. Everyone operates on the same signal.',
+    },
+    {
+        visual: <MockReporting />,
+        title: 'Reporting',
+        body: 'At B2B businesses, if you’re not creating a new SKU, it’s hard to quantify the impact of product work. We provide boardroom-ready data so you can showcase the impact of your team’s work. See the ARR you’ve unlocked and preserved, get insights into where investments should be made, and monitor and forecast growth and risk.',
     },
 ];
 
@@ -441,7 +470,7 @@ const HIWVisualEscalate = () => (
             </div>
             <div className="hiw-visual__alert-title">Pied Piper · Renewal in 60d</div>
             <div className="hiw-visual__alert-msg">
-                "Evaluating alternatives" — sentiment 0.32. Recommend executive check-in this week.
+                "Evaluating alternatives." Sentiment 0.32. Recommend executive check-in this week.
             </div>
             <div className="hiw-visual__alert-actions">
                 <span className="hiw-visual__alert-cta">Schedule check-in →</span>
@@ -455,7 +484,7 @@ const HIW_STEPS = [
         icon: <IconConnect />,
         label: 'Ingest',
         title: 'Every call, automatically',
-        description: "Connect your call recording tools — Gong, Granola, or upload transcripts manually. Climber reads every transcript the moment it's available, no configuration per call.",
+        description: "Connect your call recording tools like Gong, Granola, or upload transcripts manually. Climber reads every transcript the moment it's available, no configuration per call.",
         stepNum: '01',
         stepClass: 'how-it-works__step--1',
         iconClass: 'how-it-works__icon--1',
@@ -466,7 +495,7 @@ const HIW_STEPS = [
         icon: <IconAnalyze />,
         label: 'Contextualize',
         title: 'Signal + revenue, combined',
-        description: 'Climber scores sentiment, extracts risk signals, and cross-references ARR, renewal dates, and support history — so every alert comes with the business context to act on it.',
+        description: 'Climber scores sentiment, extracts risk signals, and cross-references ARR, renewal dates, and support history, so every alert comes with the business context to act on it.',
         stepNum: '02',
         stepClass: 'how-it-works__step--2',
         iconClass: 'how-it-works__icon--2',
@@ -533,9 +562,6 @@ export default function HomePage() {
                                 See how it works →
                             </a>
                         </div>
-                        <p className="hero__proof text-label">
-                            Built for B2B SaaS teams that ship what their customers ask for
-                        </p>
                     </div>
                     <div className="hero__visual">
                         <MockSlackCard />
@@ -566,7 +592,7 @@ export default function HomePage() {
                                 <span className="bento-tile__eyebrow">Routing</span>
                                 <h3 className="bento-tile__title">Right place, right time</h3>
                                 <p className="bento-tile__body">
-                                    Don&apos;t let feature requests get lost in a spreadsheet — automatically escalate signals to the right teams as soon as they&apos;re available.
+                                    Don&apos;t let feature requests get lost in a spreadsheet. Automatically escalate signals to the right teams as soon as they&apos;re available.
                                 </p>
                             </div>
                             <BentoVisualSlack />
@@ -659,7 +685,7 @@ export default function HomePage() {
                                 </div>
                             </div>
                             <p className="credibility__body">
-                                CS &amp; Product Ops at companies like LinkedIn and HackerOne. I built the feedback systems we wished existed — and got tired of watching insights die in spreadsheets.
+                                CS &amp; Product Ops at companies like LinkedIn and HackerOne. I got tired of watching insights die in spreadsheets and built the feedback system I wish we had.
                             </p>
                             <a
                                 href="https://www.linkedin.com/in/mollybaek"
@@ -676,10 +702,10 @@ export default function HomePage() {
                         <div className="credibility__insight">
                             <span className="credibility__insight-label">From our discovery calls</span>
                             <blockquote className="credibility__pull-quote">
-                                &ldquo;We know the signals are in the calls. Escalating them is a massive undertaking, and getting them built is a crapshoot.&rdquo;
+                                &ldquo;We have a quarterly process for sharing customer feedback to product, but it&apos;s a lot of manual effort. We need something that can automate that work and give product the info they need to actually put a solution on the roadmap.&rdquo;
                             </blockquote>
                             <cite className="credibility__attribution">
-                                — CS leaders across 12 discovery interviews, Q1 2026
+                                CS leaders across 12 discovery interviews, Q1 2026
                             </cite>
                         </div>
 

@@ -20,12 +20,12 @@ const MountainIcon: React.FC<{ size?: number }> = ({ size = 32 }) => (
 type FooterLink = { label: string; href: string; external?: boolean; onClick?: () => void };
 
 const PRODUCT_LINKS: FooterLink[] = [
-    { label: 'How it works', href: '/#how-it-works' },
-    { label: 'Pricing',      href: '/pricing' },
+    { label: 'How it works',      href: '/#how-it-works' },
+    { label: 'Pricing',           href: '/pricing' },
+    { label: 'Custom Solutions',  href: '/custom-solutions' },
 ];
 
 const COMPANY_LINKS: FooterLink[] = [
-    { label: 'Resources',                    href: '/resources' },
     { label: 'hello@productmountain.com',    href: 'mailto:hello@productmountain.com' },
     { label: 'LinkedIn',                     href: 'https://www.linkedin.com/company/productmountain', external: true },
     { label: 'Book a demo',                  href: '#',                                                onClick: openDemoModal },

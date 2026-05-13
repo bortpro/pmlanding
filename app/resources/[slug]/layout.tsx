@@ -33,10 +33,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const description = (descMap[slug] ?? '').slice(0, 155);
 
     return {
-        title: `${title} — ProductMountain`,
+        title: `${title} | ProductMountain`,
         description,
         openGraph: {
-            title: `${title} — ProductMountain`,
+            title: `${title} | ProductMountain`,
             description,
             type: 'article',
             images: [{ url: '/og-image.svg', width: 1200, height: 630 }],

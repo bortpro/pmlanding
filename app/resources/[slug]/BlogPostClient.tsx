@@ -45,7 +45,7 @@ const SAMPLE_POST = {
     slug: 'why-cs-feedback-never-makes-it-to-the-roadmap',
     title: 'Why CS feedback never makes it to the roadmap',
     description:
-        'Most CS teams surface great insights every week. But without structure, urgency scoring, or a shared system of record, product never sees it — or never trusts it.',
+        'Most CS teams surface great insights every week. But without structure, urgency scoring, or a shared system of record, product never sees it, or never trusts it.',
     category: 'CS Operations',
     author: 'ProductMountain Team',
     date: 'March 28, 2026',
@@ -126,7 +126,7 @@ export default function BlogPostClient() {
                         pain. They hear what&apos;s broken, what&apos;s missing, and what&apos;s blocking renewals
                         every single day. Yet the vast majority of that signal dies in Slack threads,
                         spreadsheets that nobody reads, or one-off escalations that product dismisses
-                        as anecdotal. The structural problem isn&apos;t that CS doesn&apos;t care — it&apos;s that
+                        as anecdotal. The structural problem isn&apos;t that CS doesn&apos;t care; it&apos;s that
                         there&apos;s no system connecting their insights to the product decision-making
                         process.
                     </p>
@@ -139,12 +139,12 @@ export default function BlogPostClient() {
                         root cause of most feedback loss.
                     </p>
 
-                    <h2>The signal is there — the system is not</h2>
+                    <h2>The signal is there. The system is not.</h2>
 
                     <p>
                         When we interviewed 40+ CS leaders at Series A–C SaaS companies, the same
                         pattern emerged everywhere. CSMs hear critical product feedback on calls
-                        and in support threads daily. They try to pass it along — via Slack, via a
+                        and in support threads daily. They try to pass it along: via Slack, via a
                         shared spreadsheet, via tagging someone in a ticket. But without structure,
                         context, and revenue weighting, the feedback gets lost or deprioritized.
                     </p>
@@ -153,11 +153,11 @@ export default function BlogPostClient() {
                         &ldquo;We had a spreadsheet with 200+ rows of customer requests. Product looked
                         at it once and never came back. They said they couldn&apos;t tell what was
                         important.&rdquo;
-                        <cite>— VP of Customer Success, $15M ARR B2B SaaS</cite>
+                        <cite>VP of Customer Success, $15M ARR B2B SaaS</cite>
                     </blockquote>
 
                     <p>
-                        The problem isn&apos;t volume — it&apos;s that the signal arrives without context.
+                        The problem isn&apos;t volume; it&apos;s that the signal arrives without context.
                         Product teams need to know: how much ARR is affected? How many accounts
                         are asking? Is this a feature request, a bug, or a strategic gap? Without
                         that metadata attached, feedback is just noise.
@@ -180,11 +180,11 @@ export default function BlogPostClient() {
                     </p>
 
                     <p>
-                        First, <strong>capture without friction</strong> — feedback should enter the
+                        First, <strong>capture without friction</strong>. Feedback should enter the
                         system where CS already works, not require a separate tool or process.
-                        Second, <strong>enrich with context</strong> — every signal needs ARR data,
+                        Second, <strong>enrich with context</strong>. Every signal needs ARR data,
                         renewal dates, and account health attached automatically. Third,{' '}
-                        <strong>surface with structure</strong> — product teams need themed clusters,
+                        <strong>surface with structure</strong>. Product teams need themed clusters,
                         priority scores, and defensible data, not a raw list.
                     </p>
 
@@ -218,11 +218,11 @@ export default function BlogPostClient() {
                     <h3>The three layers of a modern feedback loop</h3>
 
                     <p>
-                        Layer one is <strong>capture</strong> — where feedback enters the system.
+                        Layer one is <strong>capture</strong>, where feedback enters the system.
                         This should be zero-friction for CSMs. A Slack command, automatic Gong
                         transcript mining, or a lightweight form that takes 30 seconds. Layer two
-                        is <strong>intelligence</strong> — where AI clusters, scores, and enriches
-                        the raw signals. Layer three is <strong>visibility</strong> — where product
+                        is <strong>intelligence</strong>, where AI clusters, scores, and enriches
+                        the raw signals. Layer three is <strong>visibility</strong>, where product
                         teams see prioritized themes and CS teams see what happened to their feedback.
                     </p>
 
@@ -238,7 +238,7 @@ export default function BlogPostClient() {
                     <p>
                         Most teams think fixing the feedback loop means a massive tooling
                         overhaul. It doesn&apos;t. The highest-leverage move is connecting your existing
-                        tools — Slack, Gong, HubSpot or Salesforce — through a lightweight
+                        tools like Slack, Gong, HubSpot or Salesforce, through a lightweight
                         intelligence layer that does the enrichment and structuring automatically.
                     </p>
 
@@ -251,7 +251,7 @@ export default function BlogPostClient() {
 
                     <p>
                         If you&apos;re a CS leader tired of watching valuable customer insights
-                        disappear into the void, the problem isn&apos;t your team — it&apos;s the system.
+                        disappear into the void, the problem isn&apos;t your team. It&apos;s the system.
                         And the system is fixable.
                     </p>
                 </div>

@@ -41,9 +41,9 @@ export const Navbar: React.FC = () => {
     const anchor = (hash: string) => isHome ? hash : `/${hash}`;
 
     const NAV_LINKS = [
-        { label: 'How it works', href: anchor('#how-it-works'), isAnchor: true },
-        { label: 'Pricing',      href: '/pricing',               isAnchor: false },
-        { label: 'Resources',    href: '/resources',             isAnchor: false },
+        { label: 'How it works',     href: anchor('#how-it-works'), isAnchor: true },
+        { label: 'Pricing',          href: '/pricing',               isAnchor: false },
+        { label: 'Custom Solutions', href: '/custom-solutions',      isAnchor: false },
     ];
 
     const isActive = (href: string, isAnchor: boolean) =>

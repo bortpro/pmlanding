@@ -20,7 +20,7 @@ const BLOG_POSTS: BlogPost[] = [
     },
     {
         slug: 'why-cs-feedback-never-makes-it-to-the-roadmap',
-        title: 'Why CS feedback never makes it to the roadmap — and what to do about it',
+        title: 'Why CS feedback never makes it to the roadmap, and what to do about it',
         description: "Most CS teams surface great insights every week. But without structure, urgency scoring, or a shared system of record, product never sees it.",
         category: 'CS Operations',
         readTime: '6 min read',

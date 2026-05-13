@@ -11,13 +11,13 @@ import './page.css';
 const PARTNER_BENEFITS = [
     {
         icon: '💰',
-        title: 'Founding member pricing — locked for life',
+        title: 'Founding member pricing, locked for life',
         description: '25% off list price for as long as you stay. No renegotiations, no sunset clauses.',
     },
     {
         icon: '🗺️',
         title: 'Direct input on the roadmap',
-        description: 'Monthly 1:1 with our product team. Your use cases shape the product — not the other way around.',
+        description: 'Monthly 1:1 with our product team. Your use cases shape the product, not the other way around.',
     },
     {
         icon: '🤝',
@@ -27,7 +27,7 @@ const PARTNER_BENEFITS = [
     {
         icon: '🧪',
         title: 'Early access to Climber',
-        description: 'Be the first to test our autonomous product intelligence agent — before general availability.',
+        description: 'Be the first to test our autonomous product intelligence agent, before general availability.',
     },
 ];
 

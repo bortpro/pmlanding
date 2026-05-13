@@ -20,11 +20,11 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-    title: 'ProductMountain — Build what your customers need',
+    title: 'ProductMountain | Build what your customers need',
     description:
         'ProductMountain analyzes call transcripts to transform raw customer feedback into roadmap-ready insights so product teams ship the highest-impact features and maximize retention.',
     openGraph: {
-        title: 'ProductMountain — Build what your customers need',
+        title: 'ProductMountain | Build what your customers need',
         description:
             'ProductMountain analyzes call transcripts to transform raw customer feedback into roadmap-ready insights so product teams ship the highest-impact features and maximize retention.',
         type: 'website',
