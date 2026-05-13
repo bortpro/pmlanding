@@ -8,43 +8,28 @@ import './page.css';
  * Feature lists
  * ────────────────────────────────────────────────────────────────────────── */
 
-const STARTER_FEATURES = [
-    'AI-powered signal extraction',
-    'Issue monitoring',
-    'Weekly insights email',
-    'Custom taxonomies',
-    'Up to 3 seats',
-];
-
 const PRO_FEATURES = [
-    'Everything in Starter',
-    'Gong transcript monitoring',
-    'Custom alerting & auto-monitoring',
-    'CRM integrations (Salesforce, HubSpot)',
-    'Slack & messaging app integrations',
-    'Unlimited seats',
+    'Call transcript monitoring',
+    'AI signal extraction',
+    'Custom alerting',
+    'CRM and messaging integrations',
+    'Product prioritization insights',
 ];
 
 const ENTERPRISE_FEATURES = [
     'Everything in Climber Pro',
-    'Custom integrations',
-    'Multiple product layers',
-    'Dedicated onboarding & support',
+    'Custom solutions',
+    'Multiple product lines',
+    'Dedicated onboarding and support',
 ];
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * Sub-components
  * ────────────────────────────────────────────────────────────────────────── */
 
-const CheckStarter: React.FC = () => (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-        <path d="M3.5 8.5l3 3 6-6.5" stroke="var(--text-secondary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-);
-
 const CheckPro: React.FC = () => (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-        <path d="M3.5 8.5l3 3 6-6.5" stroke="var(--forest)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M3.5 8.5l3 3 6-6.5" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 );
 
@@ -64,56 +49,20 @@ export default function PricingPage() {
     return (
         <main className="pricing-page">
 
-            {/* ── SECTION 1: HERO ──────────────────────────────────────────── */}
-            <section className="price-hero">
-                <div className="price-hero__inner container">
-                    <h1 className="price-hero__title">
-                        Simple pricing. Serious value.
-                    </h1>
-                    <p className="price-hero__sub">
-                        Climber pays for itself the first time it catches a churn signal your team missed.
-                    </p>
-                </div>
-            </section>
-
-            {/* ── SECTION 2: PRICING CARDS ─────────────────────────────────── */}
+            {/* ── PRICING CARDS ────────────────────────────────────────────── */}
             <section className="price-cards">
                 <div className="price-cards__inner container">
-                    <div className="price-cards__grid">
+                    <div className="price-cards__grid price-cards__grid--two">
 
-                        {/* Card 1: Climber Starter */}
-                        <div className="price-card price-card--starter">
-                            <h3 className="price-card__name">Climber Starter</h3>
-                            <div className="price-card__price-block">
-                                <div className="price-card__price">
-                                    $400<span className="price-card__per">/mo</span>
-                                </div>
-                                <div className="price-card__billing">billed annually</div>
-                                <div className="price-card__billing-alt">or $500/mo billed monthly</div>
-                            </div>
-                            <button
-                                type="button"
-                                onClick={handleDemo}
-                                className="btn btn-secondary price-card__cta"
-                            >
-                                Book a demo
-                            </button>
-                            <ul className="price-card__features">
-                                {STARTER_FEATURES.map((f) => (
-                                    <li key={f}><CheckStarter /><span>{f}</span></li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Card 2: Climber Pro */}
+                        {/* Card 1: Climber Pro */}
                         <div className="price-card price-card--pro">
                             <h3 className="price-card__name">Climber Pro</h3>
                             <div className="price-card__price-block">
+                                <div className="price-card__price-prefix">Starting at</div>
                                 <div className="price-card__price">
-                                    $1,200<span className="price-card__per">/mo</span>
+                                    $14<span className="price-card__per">/user/month</span>
                                 </div>
                                 <div className="price-card__billing">billed annually</div>
-                                <div className="price-card__billing-alt">or $1,500/mo billed monthly</div>
                             </div>
                             <button
                                 type="button"
@@ -129,7 +78,7 @@ export default function PricingPage() {
                             </ul>
                         </div>
 
-                        {/* Card 3: Climber Enterprise */}
+                        {/* Card 2: Climber Enterprise */}
                         <div className="price-card price-card--enterprise">
                             <div className="price-card__enterprise-top">
                                 <span className="price-card__badge">Custom</span>

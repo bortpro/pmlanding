@@ -316,9 +316,9 @@ export default function ProductPage() {
                         <span className="badge badge-accent layer__badge">1. Data Ingestion</span>
                         <h2 className="layer__title text-h1">Feedback enters where your team already lives</h2>
                         <ul className="layer__bullets text-body">
-                            <li><strong>Slack <code>/feedback</code> command</strong> — Two fields, 30 seconds. Zero context switching for CS and Sales.</li>
-                            <li><strong>Gong transcript mining</strong> — Automatic extraction of product signals directly from connected calls.</li>
-                            <li><strong>CRM synchronization</strong> — Automatically attaches account ID, tier, and renewal metadata to every ping via HubSpot or Salesforce.</li>
+                            <li><strong>Slack <code>/feedback</code> command</strong>: Two fields, 30 seconds. Zero context switching for CS and Sales.</li>
+                            <li><strong>Gong transcript mining</strong>: Automatic extraction of product signals directly from connected calls.</li>
+                            <li><strong>CRM synchronization</strong>: Automatically attaches account ID, tier, and renewal metadata to every ping via HubSpot or Salesforce.</li>
                         </ul>
                     </div>
                     <div className="layer__visual">
@@ -334,9 +334,9 @@ export default function ProductPage() {
                         <span className="badge badge-primary layer__badge">2. Agentic Analysis</span>
                         <h2 className="layer__title text-h1">Moving from literal noise to jobs-to-be-done</h2>
                         <ul className="layer__bullets text-body">
-                            <li><strong>JTBD Clustering</strong> — Our autonomous agent groups requests by underlying customer need rather than literal text matches.</li>
-                            <li><strong>Revenue Weighting</strong> — Every cluster is immediately run against your CRM to calculate the precise ARR at risk.</li>
-                            <li><strong>Deduplication</strong> — Consolidates 50 similar tickets into a single, highly actionable insight block.</li>
+                            <li><strong>JTBD Clustering</strong>: Our autonomous agent groups requests by underlying customer need rather than literal text matches.</li>
+                            <li><strong>Revenue Weighting</strong>: Every cluster is immediately run against your CRM to calculate the precise ARR at risk.</li>
+                            <li><strong>Deduplication</strong>: Consolidates 50 similar tickets into a single, highly actionable insight block.</li>
                         </ul>
                     </div>
                     <div className="layer__visual">
@@ -352,9 +352,9 @@ export default function ProductPage() {
                         <span className="badge badge-accent layer__badge">3. Automated Alerts</span>
                         <h2 className="layer__title text-h1">Never miss a critical pipeline risk</h2>
                         <ul className="layer__bullets text-body">
-                            <li><strong>Proactive Pings</strong> — Configure rules to alert product leaders when a high-value account mentions a competitor or critical roadblock.</li>
-                            <li><strong>Slack & Email Delivery</strong> — Receive instantly formatted briefs inside your existing communication hubs.</li>
-                            <li><strong>Context-Rich</strong> — Every alert contains direct quotes, account value, and actionable next steps without leaving the notification.</li>
+                            <li><strong>Proactive Pings</strong>: Configure rules to alert product leaders when a high-value account mentions a competitor or critical roadblock.</li>
+                            <li><strong>Slack & Email Delivery</strong>: Receive instantly formatted briefs inside your existing communication hubs.</li>
+                            <li><strong>Context-Rich</strong>: Every alert contains direct quotes, account value, and actionable next steps without leaving the notification.</li>
                         </ul>
                     </div>
                     <div className="layer__visual">
@@ -370,9 +370,9 @@ export default function ProductPage() {
                         <span className="badge badge-primary layer__badge">4. Dashboards & Request Ranking</span>
                         <h2 className="layer__title text-h1">A roadmap built on mathematical reality</h2>
                         <ul className="layer__bullets text-body">
-                            <li><strong>Decomposed Prioritization</strong> — See every request ranked mathematically by frequency, ARR, urgency, and strategic alignment.</li>
-                            <li><strong>Manual Overrides</strong> — AI creates the baseline, but your product team retains full manual control to boost or deprioritize items.</li>
-                            <li><strong>Executive Vistas</strong> — Dedicated views for leadership to see exactly which gaps are stalling revenue.</li>
+                            <li><strong>Decomposed Prioritization</strong>: See every request ranked mathematically by frequency, ARR, urgency, and strategic alignment.</li>
+                            <li><strong>Manual Overrides</strong>: AI creates the baseline, but your product team retains full manual control to boost or deprioritize items.</li>
+                            <li><strong>Executive Vistas</strong>: Dedicated views for leadership to see exactly which gaps are stalling revenue.</li>
                         </ul>
                     </div>
                     <div className="layer__visual">

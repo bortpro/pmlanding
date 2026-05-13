@@ -37,7 +37,8 @@
 
 .price-cards {
     background-color: var(--bg);
-    padding-block: var(--space-section);
+    padding-top: calc(72px + var(--space-section));
+    padding-bottom: var(--space-section);
 }
 
 .price-cards__inner {
@@ -49,6 +50,12 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: var(--space-xl);
     align-items: start;
+}
+
+.price-cards__grid--two {
+    grid-template-columns: 1fr 1fr;
+    max-width: 880px;
+    margin: 0 auto;
 }
 
 /* ── Base card ── */
@@ -124,6 +131,13 @@
 /* ── Price block ── */
 .price-card__price-block {
     margin-bottom: var(--space-xl);
+}
+
+.price-card__price-prefix {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
 }
 
 .price-card__price {
